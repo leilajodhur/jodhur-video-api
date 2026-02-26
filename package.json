@@ -27,10 +27,10 @@
     "tsx": "4.19.3",
     "typescript": "5.9.3"
   },
- "scripts": {
+"scripts": {
     "build": "remotion bundle index.ts build",
-    "dev": "tsx watch index.ts",
-    "start": "tsx index.ts",
+    "dev": "tsx watch server.ts",
+    "start": "tsx server.ts",
     "lint": "eslint . && tsc",
     "remotion:upgrade": "remotion upgrade",
     "remotion:studio": "remotion studio"
