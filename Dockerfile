@@ -31,7 +31,7 @@ RUN mkdir -p renders
 RUN npx remotion browser ensure
 
 # Bundle the Remotion composition
-RUN npx remotion bundle
+RUN npx remotion bundle index.ts build
 # By default, bundle command will create "build" directory with the bundle
 ENV REMOTION_SERVE_URL=build
 
