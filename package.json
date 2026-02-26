@@ -30,7 +30,7 @@
 "scripts": {
     "build": "remotion bundle index.ts build",
     "dev": "tsx watch server.ts",
-    "start": "tsx server.ts",
+    "start": "tsx index.ts",
     "lint": "eslint . && tsc",
     "remotion:upgrade": "remotion upgrade",
     "remotion:studio": "remotion studio"
