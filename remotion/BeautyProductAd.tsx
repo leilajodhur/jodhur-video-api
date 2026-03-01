@@ -1,5 +1,5 @@
 // BeautyProductAd.tsx
-import { AbsoluteFill, Sequence, useCurrentFrame, interpolate, spring, useVideoConfig, Img } from "remotion";
+import { AbsoluteFill, Sequence, useCurrentFrame, interpolate, spring, useVideoConfig, Img, getInputProps } from "remotion";
 
 const SCENES = {
   INTRO: [0, 60],       // 0-2s : Intro logo
@@ -19,7 +19,12 @@ export const BeautyProductAd: React.FC<{
   accentColor: string;
   logoUrl: string;
   productImageUrl: string;
+  rating?: number;
 }> = (props) => {
+  // 🟢 هذا هو السطر السحري الذي سيجلب البيانات من n8n أو Shopify
+  const inputProps = { ...props, ...getInputProps() };
+  // 🟢 --------------------------------------------------------
+
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -32,7 +37,8 @@ export const BeautyProductAd: React.FC<{
   const productOpacity = interpolate(frame, [60, 75], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
 
   // === SCENE 3 : FEATURES ===
-  const featureEntries = props.features.map((_, i) =>
+  // لاحظ كيف استخدمنا inputProps هنا
+  const featureEntries = inputProps.features.map((_, i) =>
     spring({ frame: frame - 120 - i * 15, fps, from: 50, to: 0, durationInFrames: 20 })
   );
 
@@ -43,7 +49,7 @@ export const BeautyProductAd: React.FC<{
   return (
     <AbsoluteFill
       style={{
-        background: `linear-gradient(135deg, ${props.backgroundGradient[0]}, ${props.backgroundGradient[1]})`,
+        background: `linear-gradient(135deg, ${inputProps.backgroundGradient[0]}, ${inputProps.backgroundGradient[1]})`,
         fontFamily: "'Poppins', sans-serif",
       }}
     >
@@ -51,9 +57,9 @@ export const BeautyProductAd: React.FC<{
       <Sequence from={0} durationInFrames={60}>
         <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", opacity: logoOpacity }}>
           <div style={{ transform: `scale(${logoScale})` }}>
-            <Img src={props.logoUrl} style={{ width: 300 }} />
-            <p style={{ color: props.accentColor, fontSize: 22, textAlign: "center", marginTop: 10 }}>
-              {props.tagline}
+            <Img src={inputProps.logoUrl} style={{ width: 300 }} />
+            <p style={{ color: inputProps.accentColor, fontSize: 22, textAlign: "center", marginTop: 10 }}>
+              {inputProps.tagline}
             </p>
           </div>
         </AbsoluteFill>
@@ -63,15 +69,15 @@ export const BeautyProductAd: React.FC<{
       <Sequence from={60} durationInFrames={60}>
         <AbsoluteFill style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", opacity: productOpacity }}>
           <div style={{ transform: `translateX(${productSlide}px)` }}>
-            <Img src={props.productImageUrl} style={{ width: 350, borderRadius: 20 }} />
+            <Img src={inputProps.productImageUrl} style={{ width: 350, borderRadius: 20 }} />
           </div>
           <div style={{ marginLeft: 40 }}>
-            <h1 style={{ color: props.accentColor, fontSize: 36, maxWidth: 400 }}>{props.productName}</h1>
+            <h1 style={{ color: inputProps.accentColor, fontSize: 36, maxWidth: 400 }}>{inputProps.productName}</h1>
             <div style={{ display: "flex", gap: 12, alignItems: "center", marginTop: 10 }}>
-              <span style={{ fontSize: 32, fontWeight: 700, color: props.accentColor }}>{props.price}</span>
-              <span style={{ fontSize: 20, textDecoration: "line-through", color: "#999" }}>{props.oldPrice}</span>
+              <span style={{ fontSize: 32, fontWeight: 700, color: inputProps.accentColor }}>{inputProps.price}</span>
+              <span style={{ fontSize: 20, textDecoration: "line-through", color: "#999" }}>{inputProps.oldPrice}</span>
             </div>
-            <p style={{ color: "#B8860B", fontSize: 18 }}>⭐ {props.rating || "4.8"} — Best seller</p>
+            <p style={{ color: "#B8860B", fontSize: 18 }}>⭐ {inputProps.rating || "4.8"} — Best seller</p>
           </div>
         </AbsoluteFill>
       </Sequence>
@@ -79,8 +85,8 @@ export const BeautyProductAd: React.FC<{
       {/* SCENE 3 — Features */}
       <Sequence from={120} durationInFrames={60}>
         <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
-          <h2 style={{ color: props.accentColor, fontSize: 32, marginBottom: 30 }}>Pourquoi Jodhur ?</h2>
-          {props.features.map((feat, i) => (
+          <h2 style={{ color: inputProps.accentColor, fontSize: 32, marginBottom: 30 }}>Pourquoi Jodhur ?</h2>
+          {inputProps.features.map((feat, i) => (
             <div
               key={i}
               style={{
@@ -103,11 +109,11 @@ export const BeautyProductAd: React.FC<{
       {/* SCENE 4 — CTA */}
       <Sequence from={180} durationInFrames={60}>
         <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
-          <Img src={props.productImageUrl} style={{ width: 200, borderRadius: 20, marginBottom: 20 }} />
+          <Img src={inputProps.productImageUrl} style={{ width: 200, borderRadius: 20, marginBottom: 20 }} />
           <div
             style={{
               transform: `scale(${ctaScale * ctaPulse})`,
-              background: props.accentColor,
+              background: inputProps.accentColor,
               color: "white",
               padding: "20px 50px",
               borderRadius: 50,
@@ -116,9 +122,9 @@ export const BeautyProductAd: React.FC<{
               cursor: "pointer",
             }}
           >
-            {props.ctaText}
+            {inputProps.ctaText}
           </div>
-          <p style={{ color: props.accentColor, fontSize: 20, marginTop: 15 }}>
+          <p style={{ color: inputProps.accentColor, fontSize: 20, marginTop: 15 }}>
             Livraison gratuite 🇲🇦 | Paiement à la livraison
           </p>
         </AbsoluteFill>
