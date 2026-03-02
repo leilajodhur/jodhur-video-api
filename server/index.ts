@@ -17,25 +17,26 @@ function setupApp({ remotionBundleUrl }: { remotionBundleUrl: string }) {
     rendersDir,
   });
 
-  // Host renders on /renders
   app.use("/renders", express.static(rendersDir));
   app.use(express.json());
 
   // Endpoint to create a new job
   app.post("/renders", async (req, res) => {
-    const titleText = req.body?.titleText || "Hello, world!";
+    // 1. استقبال اسم القالب وبيانات المنتج من n8n مباشرة
+    const composition = req.body?.composition;
+    const inputProps = req.body?.inputProps || {};
 
-    if (typeof titleText !== "string") {
-      res.status(400).json({ message: "titleText must be a string" });
+    // التأكد من أن n8n أرسل اسم القالب
+    if (!composition || typeof composition !== "string") {
+      res.status(400).json({ message: "You must provide a valid 'composition' name from n8n." });
       return;
     }
 
-    const jobId = queue.createJob({ titleText });
+    const jobId = queue.createJob({ composition, inputProps });
 
     res.json({ jobId });
   });
 
-  // Endpoint to get a job status
   app.get("/renders/:jobId", (req, res) => {
     const jobId = req.params.jobId;
     const job = queue.jobs.get(jobId);
@@ -43,10 +44,8 @@ function setupApp({ remotionBundleUrl }: { remotionBundleUrl: string }) {
     res.json(job);
   });
 
-  // Endpoint to cancel a job
   app.delete("/renders/:jobId", (req, res) => {
     const jobId = req.params.jobId;
-
     const job = queue.jobs.get(jobId);
 
     if (!job) {
@@ -60,7 +59,6 @@ function setupApp({ remotionBundleUrl }: { remotionBundleUrl: string }) {
     }
 
     job.cancel();
-
     res.json({ message: "Job cancelled" });
   });
 

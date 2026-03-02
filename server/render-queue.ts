@@ -6,34 +6,17 @@ import {
 import { randomUUID } from "node:crypto";
 import path from "node:path";
 
+// 1. تحديث واجهة البيانات لتستقبل أي قالب وأي بيانات
 interface JobData {
-  titleText: string;
+  composition: string;
+  inputProps: Record<string, unknown>;
 }
 
 type JobState =
-  | {
-      status: "queued";
-      data: JobData;
-      cancel: () => void;
-    }
-  | {
-      status: "in-progress";
-      progress: number;
-      data: JobData;
-      cancel: () => void;
-    }
-  | {
-      status: "completed";
-      videoUrl: string;
-      data: JobData;
-    }
-  | {
-      status: "failed";
-      error: Error;
-      data: JobData;
-    };
-
-const compositionId = "HelloWorld";
+  | { status: "queued"; data: JobData; cancel: () => void; }
+  | { status: "in-progress"; progress: number; data: JobData; cancel: () => void; }
+  | { status: "completed"; videoUrl: string; data: JobData; }
+  | { status: "failed"; error: Error; data: JobData; };
 
 export const makeRenderQueue = ({
   port,
@@ -63,21 +46,18 @@ export const makeRenderQueue = ({
     });
 
     try {
-      const inputProps = {
-        titleText: job.data.titleText,
-      };
-
+      // 2. استخدام الاسم والبيانات القادمة من n8n بذكاء
       const composition = await selectComposition({
         serveUrl,
-        id: compositionId,
-        inputProps,
+        id: job.data.composition,
+        inputProps: job.data.inputProps,
       });
 
       await renderMedia({
         cancelSignal,
         serveUrl,
         composition,
-        inputProps,
+        inputProps: job.data.inputProps,
         codec: "h264",
         onProgress: (progress) => {
           console.info(`${jobId} render progress:`, progress.progress);
@@ -126,9 +106,7 @@ export const makeRenderQueue = ({
 
   function createJob(data: JobData) {
     const jobId = randomUUID();
-
     queueRender({ jobId, data });
-
     return jobId;
   }
 
