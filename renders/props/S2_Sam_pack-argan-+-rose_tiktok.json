@@ -1,0 +1,26 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#C4763A",
+  "accentColor": "#FF4444",
+  "semaine": "S2",
+  "phase": "Découverte",
+  "pilier": "Promo & Offres",
+  "datePublication": "2026-03-21 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Argan + Eau de Rose : le duo royal à prix spécial",
+  "hookDarija": "أرغان + ماء الورد : كوبل ملكي بثمن زوين",
+  "productName": "Pack Argan + Rose",
+  "scriptAngle": "Montrer les 2 produits ensemble. Routine matin (eau de rose) + soir (argan). Prix individuel barré > prix duo. Urgence : offre ce week-end uniquement.",
+  "storytellingEmotion": "Le secret des femmes marocaines tient en 2 flacons",
+  "cta": "Commande le duo → lien bio - Offre expire dimanche",
+  "hashtags": "#jodhur #promo #packduo #huileargan #eauderose #offrespéciale #beauténaturelle #bonplan #skincareduo #beautémarocaine #coffretsoin #routinebeauté",
+  "productImage": "https://jodhur.ma/img/argan.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Montrer les 2 produits ensemble. Routine matin (eau de rose) + soir (argan). Prix individuel barré > prix duo. Urgence : offre ce week",
+    "end uniquement."
+  ]
+}

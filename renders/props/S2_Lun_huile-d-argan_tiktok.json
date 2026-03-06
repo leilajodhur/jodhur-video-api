@@ -1,0 +1,26 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#4A7C59",
+  "accentColor": "#C4763A",
+  "semaine": "S2",
+  "phase": "Découverte",
+  "pilier": "Produit & Région",
+  "datePublication": "2026-03-16 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Les chèvres grimpent aux arbres pour cet or liquide",
+  "hookDarija": "الماعز كيطّلعو للشجر على ود هاد الذهب السائل",
+  "productName": "Huile d'Argan",
+  "scriptAngle": "Séquence : chèvres dans arganier (iconique) > femmes coopérative cassant noix > extraction presse > goutte dorée sur main. Fun facts en voix-off darija. Beat trending.",
+  "storytellingEmotion": "L'huile d'argan c'est l'histoire de milliers de femmes amazighes",
+  "cta": "Découvre notre argan pure coopérative → lien bio",
+  "hashtags": "#jodhur #huileargan #arganoil #ordumaroc #beauténaturelle #soussmaroc #cosmetiquebio #skincare #cheveux #amazigh #cooperative #beautémarocaine #liquidgold #moroccanoil",
+  "productImage": "https://jodhur.ma/img/argan.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Séquence : chèvres dans arganier (iconique) > femmes coopérative cassant noix > extraction presse > goutte dorée sur main. Fun facts en voix",
+    "off darija. Beat trending."
+  ]
+}

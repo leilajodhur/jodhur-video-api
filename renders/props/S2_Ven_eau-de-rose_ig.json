@@ -1,0 +1,36 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S2",
+  "phase": "Découverte",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-03-20 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "3 façons d'utiliser l'eau de rose que tu ne connais pas",
+  "hookDarija": "3 طرق ديال ماء الورد لي ما عمرك جربتي",
+  "productName": "Eau de Rose",
+  "scriptAngle": "Démo 3 utilisations : 1) Brume tonique matin (spray visage) 2) Mélangée au ghassoul comme masque 3) Compresses yeux fatigués. Montrer le geste pour chaque. Tips bonus.",
+  "storytellingEmotion": "L'eau de rose est le couteau suisse de ta routine",
+  "cta": "Essaie ces 3 astuces et dis-nous ta préférée en commentaire",
+  "hashtags": "#jodhur #eauderose #rosewater #astucesbeauté #skincareroutine #toniquevisage #masquevisage #beauténaturelle #beautémarocaine #diyskincare #soinnaturel #tutoriel",
+  "productImage": "https://jodhur.ma/img/eau-rose.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Démo 3 utilisations : 1) Brume tonique matin (spray visage) 2) Mélangée au ghassoul comme masque 3) Compresses yeux fatigués. Montrer le geste pour chaque. Tips bonus."
+  ],
+  "problemStatement": "3 façons d'utiliser l'eau de rose que tu ne connais pas",
+  "steps": [
+    {
+      "number": 1,
+      "title": "Démo 3 utilisations : 1) Brume tonique matin …",
+      "desc": "Démo 3 utilisations : 1) Brume tonique matin (spray visage) 2) Mélangée au ghassoul comme masque 3) Compresses yeux fatigués. Montrer le geste pour chaque. Tips bonus.",
+      "emoji": null,
+      "durationSec": 3
+    }
+  ],
+  "resultsText": "L'eau de rose est le couteau suisse de ta routine"
+}

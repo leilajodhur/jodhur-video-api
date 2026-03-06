@@ -1,0 +1,44 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S4",
+  "phase": "Éducation",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-03-30 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "Routine hammam en 6 étapes : de l'amateur à l'experte",
+  "hookDarija": "روتين الحمّام في 6 خطوات… من المبتدئة للخبيرة",
+  "productName": "Kit Hammam",
+  "scriptAngle": "Slide 1: titre + ambiance vapeur. Slide 2: étape 1 vapeur 10min. Slide 3: étape 2 savon beldi 5min. Slide 4: étape 3 gommage kessa. Slide 5: étape 4 ghassoul 10min. Slide 6: étape 5 rinçage + étape 6 hydratation argan. Slide 7: récap visuel.",
+  "storytellingEmotion": "Le hammam n'est pas un soin, c'est une renaissance hebdomadaire",
+  "cta": "Sauvegarde cette routine et teste-la ce week-end",
+  "hashtags": "#jodhur #routinehammam #hammam #hammammarocain #savonbeldi #ghassoul #gommage #beauténaturelle #beautémarocaine #skincareroutine #selfcaresunday #rituelbeauté",
+  "productImage": "https://jodhur.ma/img/kit-hammam.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Slide 1: titre + ambiance vapeur. Slide 2: étape 1 vapeur 10min. Slide 3: étape 2 savon beldi 5min. Slide 4: étape 3 gommage kessa. Slide 5: étape 4 ghassoul 10min. Slide 6: étape 5 rinçage + étape 6 hydratation argan. Slide 7: récap visuel."
+  ],
+  "carouselTitle": "Routine hammam en 6 étapes : de l'amateur à l'experte",
+  "saveText": "Enregistre 🔖 pour ne pas perdre ce guide",
+  "slides": [
+    {
+      "title": "Routine hammam en 6 étapes : de l'amateur à l'experte",
+      "subtitle": "",
+      "body": "",
+      "highlight": "GUIDE"
+    },
+    {
+      "title": "Ce que tu dois savoir",
+      "body": "Slide 1: titre + ambiance vapeur. Slide 2: étape 1 vapeur 10min. Slide 3: étape 2 savon beldi 5min. Slide 4: étape 3 gommage kessa. Slide 5: étape 4 ghassoul 10min. Slide 6: étape 5 rinçage + étape 6 hydratation argan. Slide 7: récap visuel.",
+      "highlight": ""
+    },
+    {
+      "title": "Sauvegarde cette routine et teste-la ce week-end",
+      "body": ""
+    }
+  ]
+}

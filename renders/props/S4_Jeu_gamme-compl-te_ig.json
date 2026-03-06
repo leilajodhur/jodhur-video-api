@@ -1,0 +1,44 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S4",
+  "phase": "Éducation",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-04-02 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "Quiz : quel est ton vrai type de peau ? La réponse va te surprendre",
+  "hookDarija": "شنو هو النوع الحقيقي ديال بشرتك؟ الجواب غادي يفاجئك",
+  "productName": "Gamme complète",
+  "scriptAngle": "Slide 1: titre quiz interactif. Slide 2: test du mouchoir (gras/sec/mixte). Slide 3: type grasse = ghassoul + nigelle. Slide 4: type sèche = argan + rose. Slide 5: type mixte = combinaison ciblée. Slide 6: type sensible = lavande + eau de rose. Slide 7: CTA diagnostic.",
+  "storytellingEmotion": "Connaître sa peau c'est la première étape pour en prendre soin",
+  "cta": "Dis-nous ton type en commentaire, on te fait une routine sur-mesure",
+  "hashtags": "#jodhur #typedepeau #quizbeauté #skincareroutine #peaugrasse #peausèche #peaumixte #peausensible #beauténaturelle #beautémarocaine #conseilpeau #diagnostic",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Slide 1: titre quiz interactif. Slide 2: test du mouchoir (gras/sec/mixte). Slide 3: type grasse = ghassoul + nigelle. Slide 4: type sèche = argan + rose. Slide 5: type mixte = combinaison ciblée. Slide 6: type sensible = lavande + eau de rose. Slide 7: CTA diagnostic."
+  ],
+  "carouselTitle": "Quiz : quel est ton vrai type de peau ? La réponse va te sur",
+  "saveText": "Enregistre 🔖 pour ne pas perdre ce guide",
+  "slides": [
+    {
+      "title": "Quiz : quel est ton vrai type de peau ? La réponse va te sur",
+      "subtitle": "",
+      "body": "",
+      "highlight": "GUIDE"
+    },
+    {
+      "title": "Ce que tu dois savoir",
+      "body": "Slide 1: titre quiz interactif. Slide 2: test du mouchoir (gras/sec/mixte). Slide 3: type grasse = ghassoul + nigelle. Slide 4: type sèche = argan + rose. Slide 5: type mixte = combinaison ciblée. Slide 6: type sensible = lavande + eau de rose. Slide 7: CTA diagnostic.",
+      "highlight": ""
+    },
+    {
+      "title": "Dis-nous ton type en commentaire, on te fait une routine sur-mesure",
+      "body": ""
+    }
+  ]
+}

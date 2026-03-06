@@ -1,0 +1,44 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S1",
+  "phase": "Découverte",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-03-13 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "Ghassoul en poudre, en morceaux ou en tube : lequel choisir ?",
+  "hookDarija": "الغسول: مطحون ولا قطع ولاأنبوب : شكون منهم يناسبك؟",
+  "productName": "Ghassoul",
+  "scriptAngle": "Slide 1: les 3 variantes en photo. Slide 2: poudre = masque rapide. Slide 3: morceaux = rituel authentique. Slide 4: tube = pratique voyage. Slide 5: tableau comparatif + recommandation par type de peau.",
+  "storytellingEmotion": "Pas de mauvais choix, juste celui qui te correspond",
+  "cta": "Quel est ton format préféré ? Dis-le en commentaire",
+  "hashtags": "#jodhur #ghassoul #rassoul #masqueargile #claymask #beauténaturelle #skincareroutine #conseilbeauté #beautémarocaine #peaugrasse #cheveux #soinnaturel #comparatif",
+  "productImage": "https://jodhur.ma/img/ghassoul.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Slide 1: les 3 variantes en photo. Slide 2: poudre = masque rapide. Slide 3: morceaux = rituel authentique. Slide 4: tube = pratique voyage. Slide 5: tableau comparatif + recommandation par type de peau."
+  ],
+  "carouselTitle": "Ghassoul en poudre, en morceaux ou en tube : lequel choisir ",
+  "saveText": "Enregistre 🔖 pour ne pas perdre ce guide",
+  "slides": [
+    {
+      "title": "Ghassoul en poudre, en morceaux ou en tube : lequel choisir ",
+      "subtitle": "",
+      "body": "",
+      "highlight": "GUIDE"
+    },
+    {
+      "title": "Ce que tu dois savoir",
+      "body": "Slide 1: les 3 variantes en photo. Slide 2: poudre = masque rapide. Slide 3: morceaux = rituel authentique. Slide 4: tube = pratique voyage. Slide 5: tableau comparatif + recommandation par type de peau.",
+      "highlight": ""
+    },
+    {
+      "title": "Quel est ton format préféré ? Dis-le en commentaire",
+      "body": ""
+    }
+  ]
+}

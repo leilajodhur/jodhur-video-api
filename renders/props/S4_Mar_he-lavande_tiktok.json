@@ -1,0 +1,26 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#4A7C59",
+  "accentColor": "#C4763A",
+  "semaine": "S4",
+  "phase": "Éducation",
+  "pilier": "Produit & Région",
+  "datePublication": "2026-03-31 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Lavande du Moyen Atlas : pourquoi elle est différente des autres",
+  "hookDarija": "الخزامة ديال الأطلس : علاش مختلفة على الآخرين؟",
+  "productName": "HE Lavande",
+  "scriptAngle": "Drone champs lavande Moyen Atlas > cueillette à la main > distillation alambic cuivre > test olfactif. Comparaison altitude = concentration en linalol plus élevée. Voix-off darija passionnée.",
+  "storytellingEmotion": "La montagne offre ce que la plaine ne peut pas donner",
+  "cta": "Découvre notre HE lavande Atlas → lien bio",
+  "hashtags": "#jodhur #lavande #huileessentielle #moyenatlas #lkhzama #beauténaturelle #aromathérapie #beautémarocaine #distillation #essentialoil #lavender #plantes",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Drone champs lavande Moyen Atlas > cueillette à la main > distillation alambic cuivre > test olfactif. Comparaison altitude = concentration en linalol plus élevée. Voix",
+    "off darija passionnée."
+  ]
+}

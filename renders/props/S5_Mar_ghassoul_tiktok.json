@@ -1,0 +1,44 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S5",
+  "phase": "Éducation",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-04-07 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Argile verte, rouge, blanche ou nila : le guide complet des argiles",
+  "hookDarija": "الطين الخضر ولا الحمر ولا البيض ولا النيلة: الدليل الكامل",
+  "productName": "Ghassoul",
+  "scriptAngle": "4 argiles en tas avec étiquettes. Chaque argile = gros plan texture + type de peau. Verte = grasse. Rouge = mature. Blanche = sensible. Nila = éclat. Ghassoul = polyvalente. Voix-off éducative.",
+  "storytellingEmotion": "Chaque argile a une mission, ne les confonds plus",
+  "cta": "Quelle argile est faite pour toi ? Commente ton type de peau",
+  "hashtags": "#jodhur #argile #ghassoul #nila #clay #masqueargile #beauténaturelle #guidepeau #beautémarocaine #soinnaturel #peaugrasse #peausensible #claymask",
+  "productImage": "https://jodhur.ma/img/ghassoul.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "4 argiles en tas avec étiquettes. Chaque argile = gros plan texture + type de peau. Verte = grasse. Rouge = mature. Blanche = sensible. Nila = éclat. Ghassoul = polyvalente. Voix",
+    "off éducative."
+  ],
+  "problemStatement": "Argile verte, rouge, blanche ou nila : le guide complet des argiles",
+  "steps": [
+    {
+      "number": 1,
+      "title": "4 argiles en tas avec étiquettes. Chaque argi…",
+      "desc": "4 argiles en tas avec étiquettes. Chaque argile = gros plan texture + type de peau. Verte = grasse. Rouge = mature. Blanche = sensible. Nila = éclat. Ghassoul = polyvalente. Voix",
+      "emoji": null,
+      "durationSec": 3
+    },
+    {
+      "number": 2,
+      "title": "off éducative.",
+      "desc": "off éducative.",
+      "emoji": null,
+      "durationSec": 3
+    }
+  ],
+  "resultsText": "Chaque argile a une mission, ne les confonds plus"
+}

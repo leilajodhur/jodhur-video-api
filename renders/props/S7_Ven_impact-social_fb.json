@@ -1,0 +1,28 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#8B4513",
+  "accentColor": "#D4AF37",
+  "semaine": "S7",
+  "phase": "Conversion",
+  "pilier": "Héritage & Émotion",
+  "datePublication": "2026-04-24 00:00:00",
+  "plateforme": "FB",
+  "hookFr": "Femmes à Ifrane vivent de leur savoir-faire grâce à vous",
+  "hookDarija": " نساء فإفران كتعيش من حرفتها بفضلكم",
+  "productName": "Impact social",
+  "scriptAngle": "Visuel : chiffres impact en infographie belle. 156 femmes, 7 coopératives, 23 villages, 400+ enfants scolarisés. Photos réelles femmes souriantes. Message de gratitude.",
+  "storytellingEmotion": "Chaque commande JODHUR est un vote pour l'artisanat féminin",
+  "cta": "Partage si tu crois au pouvoir du commerce éthique",
+  "hashtags": "#jodhur #impactsocial #femmesmarocaines #coopérative #commerceéquitable #ifrane #artisanat #empowerment #beautémarocaine #beauténaturelle #achatresponsable",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Visuel : chiffres impact en infographie belle. 156 femmes",
+    "7 coopératives",
+    "23 villages",
+    "400+ enfants scolarisés. Photos réelles femmes souriantes. Message de gratitude."
+  ]
+}

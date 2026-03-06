@@ -1,0 +1,36 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S3",
+  "phase": "Découverte",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-03-27 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "Routine du soir ricin + ma zhar : le combo que personne ne connaît",
+  "hookDarija": "روتين الليل: الخروع وماء الزهر… تركيبة ما كيعرفها حتى واحد",
+  "productName": "Huile de Ricin",
+  "scriptAngle": "Démo routine complète : 1) Démaquillage eau de fleur d'oranger 2) Application ricin cils avec brosse 3) Massage cuir chevelu ricin+nigelle 4) Mains ricin en gants. Ambiance cozy nuit.",
+  "storytellingEmotion": "Ta routine du soir est ton investissement du matin",
+  "cta": "Teste cette routine 21 jours et reviens nous dire",
+  "hashtags": "#jodhur #routinesoir #huiledericin #mazhar #nightroutine #cilslongs #poussecheveux #beauténaturelle #beautémarocaine #soinnaturel #skincareroutine #selfcare",
+  "productImage": "https://jodhur.ma/img/ricin.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Démo routine complète : 1) Démaquillage eau de fleur d'oranger 2) Application ricin cils avec brosse 3) Massage cuir chevelu ricin+nigelle 4) Mains ricin en gants. Ambiance cozy nuit."
+  ],
+  "problemStatement": "Routine du soir ricin + ma zhar : le combo que personne ne connaît",
+  "steps": [
+    {
+      "number": 1,
+      "title": "Démo routine complète : 1) Démaquillage eau d…",
+      "desc": "Démo routine complète : 1) Démaquillage eau de fleur d'oranger 2) Application ricin cils avec brosse 3) Massage cuir chevelu ricin+nigelle 4) Mains ricin en gants. Ambiance cozy nuit.",
+      "emoji": null,
+      "durationSec": 3
+    }
+  ],
+  "resultsText": "Ta routine du soir est ton investissement du matin"
+}

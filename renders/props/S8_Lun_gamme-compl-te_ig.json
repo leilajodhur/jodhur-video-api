@@ -1,0 +1,45 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S8",
+  "phase": "Conversion",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-04-27 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "Quel produit JODHUR pour quel problème ? Le guide définitif",
+  "hookDarija": "شمن منتاج JODHUR لشمن مشكل؟ الدليل النهائي",
+  "productName": "Gamme complète",
+  "scriptAngle": "Slide 1: titre + visuel gamme. Slide 2: acné = nigelle + ghassoul. Slide 3: sécheresse = argan + rose. Slide 4: chute cheveux = ricin + nigelle + argan. Slide 5: anti-âge = figue barbarie + argan. Slide 6: éclat = hammam + rose. Slide 7: CTA chatbot LEILA.",
+  "storytellingEmotion": "Ne cherche plus, la réponse est dans la nature",
+  "cta": "Sauvegarde ce guide ou demande à LEILA → lien bio",
+  "hashtags": "#jodhur #guide #skincareguide #beauténaturelle #beautémarocaine #acné #peausèche #antichute #antiage #eclat #hammam #routinebeauté",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Slide 1: titre + visuel gamme. Slide 2: acné = nigelle + ghassoul. Slide 3: sécheresse = argan + rose. Slide 4: chute cheveux = ricin + nigelle + argan. Slide 5: anti",
+    "âge = figue barbarie + argan. Slide 6: éclat = hammam + rose. Slide 7: CTA chatbot LEILA."
+  ],
+  "carouselTitle": "Quel produit JODHUR pour quel problème ? Le guide définitif",
+  "saveText": "Enregistre 🔖 pour ne pas perdre ce guide",
+  "slides": [
+    {
+      "title": "Quel produit JODHUR pour quel problème ? Le guide définitif",
+      "subtitle": "",
+      "body": "",
+      "highlight": "GUIDE"
+    },
+    {
+      "title": "Ce que tu dois savoir",
+      "body": "Slide 1: titre + visuel gamme. Slide 2: acné = nigelle + ghassoul. Slide 3: sécheresse = argan + rose. Slide 4: chute cheveux = ricin + nigelle + argan. Slide 5: anti\nâge = figue barbarie + argan. Slide 6: éclat = hammam + rose. Slide 7: CTA chatbot LEILA.",
+      "highlight": ""
+    },
+    {
+      "title": "Sauvegarde ce guide ou demande à LEILA → lien bio",
+      "body": ""
+    }
+  ]
+}

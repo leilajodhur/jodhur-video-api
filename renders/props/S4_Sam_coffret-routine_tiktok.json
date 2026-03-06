@@ -1,0 +1,28 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#C4763A",
+  "accentColor": "#FF4444",
+  "semaine": "S4",
+  "phase": "Éducation",
+  "pilier": "Promo & Offres",
+  "datePublication": "2026-04-04 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Coffret Routine Complète : 6 produits à 249 MAD au lieu de 380",
+  "hookDarija": "صندوق الروتين الكامل : 6 منتجات ب249 درهم عوض 380",
+  "productName": "Coffret Routine",
+  "scriptAngle": "Ouverture coffret premium. Chaque produit présenté 3 secondes : savon beldi, ghassoul, argan, eau de rose, nigelle, ricin. Prix total détaillé vs prix coffret. Packaging soigné.",
+  "storytellingEmotion": "Une routine complète, un seul coffret, zéro compromis",
+  "cta": "Offre limitée à 50 coffrets → lien bio",
+  "hashtags": "#jodhur #coffret #promo #routinecomplète #beauténaturelle #coffretsoin #beautémarocaine #ideecadeau #savonbeldi #argan #ghassoul #eauderose #bonplan",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Ouverture coffret premium. Chaque produit présenté 3 secondes : savon beldi",
+    "ghassoul",
+    "eau de rose",
+    "nigelle"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S5",
+  "phase": "Éducation",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-04-09 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "Masque anti-chute : ricin + nigelle + argan, la formule secrète",
+  "hookDarija": "ماسك ضدّ تساقط الشعر: خروع + حبة سوداء + أركان… الوصفة السرّية",
+  "productName": "Huile de Ricin",
+  "scriptAngle": "Tutoriel pas à pas : 1) 2 cuillères ricin 2) 1 cuillère nigelle 3) 1 cuillère argan 4) Mélanger au bain-marie 5) Application section par section 6) Massage 5min 7) Charlotte 2h 8) Shampoing doux. Résultats attendus.",
+  "storytellingEmotion": "Tes cheveux méritent le même soin que ta peau",
+  "cta": "Teste ce masque 1x/semaine pendant 1 mois et reviens nous dire",
+  "hashtags": "#jodhur #masquecheveux #antichute #huiledericin #huiledenigelle #huileargan #poussecheveux #beauténaturelle #beautémarocaine #hairmask #haircare #diyhair",
+  "productImage": "https://jodhur.ma/img/ricin.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Tutoriel pas à pas : 1) 2 cuillères ricin 2) 1 cuillère nigelle 3) 1 cuillère argan 4) Mélanger au bain",
+    "marie 5) Application section par section 6) Massage 5min 7) Charlotte 2h 8) Shampoing doux. Résultats attendus."
+  ],
+  "problemStatement": "Masque anti-chute : ricin + nigelle + argan, la formule secrète",
+  "steps": [
+    {
+      "number": 1,
+      "title": "Tutoriel pas à pas : 1) 2 cuillères ricin 2) …",
+      "desc": "Tutoriel pas à pas : 1) 2 cuillères ricin 2) 1 cuillère nigelle 3) 1 cuillère argan 4) Mélanger au bain",
+      "emoji": null,
+      "durationSec": 3
+    },
+    {
+      "number": 2,
+      "title": "marie 5) Application section par section 6) M…",
+      "desc": "marie 5) Application section par section 6) Massage 5min 7) Charlotte 2h 8) Shampoing doux. Résultats attendus.",
+      "emoji": null,
+      "durationSec": 3
+    }
+  ],
+  "resultsText": "Tes cheveux méritent le même soin que ta peau"
+}

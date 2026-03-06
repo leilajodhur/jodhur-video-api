@@ -1,0 +1,26 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#C4763A",
+  "accentColor": "#FF4444",
+  "semaine": "S8",
+  "phase": "Conversion",
+  "pilier": "Promo & Offres",
+  "datePublication": "2026-04-30 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Box VIP JODHUR : chaque mois un trésor surprise à 199 MAD",
+  "hookDarija": "بوكس VIP JODHUR : كل شهر كنز مفاجأة ب199 درهم",
+  "productName": "Box VIP",
+  "scriptAngle": "Concept abonnement : chaque mois 3-4 produits surprise + exclusivités + accès anticipé nouveautés. Montrer 1ère box exemple. Avantages VIP listés. Early bird pricing.",
+  "storytellingEmotion": "Le meilleur du Maroc livré chez toi chaque mois",
+  "cta": "Inscris-toi VIP → lien bio - 50 premières places uniquement",
+  "hashtags": "#jodhur #boxvip #abonnement #subscriptionbox #beauténaturelle #beautémarocaine #surprise #premium #exclusive #monthlybox #skincarebox",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Concept abonnement : chaque mois 3",
+    "4 produits surprise + exclusivités + accès anticipé nouveautés. Montrer 1ère box exemple. Avantages VIP listés. Early bird pricing."
+  ]
+}

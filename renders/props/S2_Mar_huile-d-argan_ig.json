@@ -1,0 +1,44 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S2",
+  "phase": "Découverte",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-03-17 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "Argan visage vs cheveux vs cuisine : pas la même huile !",
+  "hookDarija": "أرغان الوجه، الشعر، والماكلة… ماشي نفس الشي!",
+  "productName": "Huile d'Argan",
+  "scriptAngle": "Slide 1: 3 bouteilles identiques mais usages différents. Slide 2: cosmétique pressée à froid = visage. Slide 3: torréfiée = alimentaire (goût noisette). Slide 4: cosmétique en masque = cheveux. Slide 5: comment reconnaître la vraie. Slide 6: CTA.",
+  "storytellingEmotion": "L'argan n'est pas un produit, c'est une pharmacie complète",
+  "cta": "Sauvegarde ce guide pour ne plus te tromper",
+  "hashtags": "#jodhur #huileargan #arganoil #guidebeauté #skincare #haircare #cuisinemarocaine #huilevisage #huilecheveux #argantorréfié #beautémarocaine #conseilbeauté #soinnaturel",
+  "productImage": "https://jodhur.ma/img/argan.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Slide 1: 3 bouteilles identiques mais usages différents. Slide 2: cosmétique pressée à froid = visage. Slide 3: torréfiée = alimentaire (goût noisette). Slide 4: cosmétique en masque = cheveux. Slide 5: comment reconnaître la vraie. Slide 6: CTA."
+  ],
+  "carouselTitle": "Argan visage vs cheveux vs cuisine : pas la même huile !",
+  "saveText": "Enregistre 🔖 pour ne pas perdre ce guide",
+  "slides": [
+    {
+      "title": "Argan visage vs cheveux vs cuisine : pas la même huile !",
+      "subtitle": "",
+      "body": "",
+      "highlight": "GUIDE"
+    },
+    {
+      "title": "Ce que tu dois savoir",
+      "body": "Slide 1: 3 bouteilles identiques mais usages différents. Slide 2: cosmétique pressée à froid = visage. Slide 3: torréfiée = alimentaire (goût noisette). Slide 4: cosmétique en masque = cheveux. Slide 5: comment reconnaître la vraie. Slide 6: CTA.",
+      "highlight": ""
+    },
+    {
+      "title": "Sauvegarde ce guide pour ne plus te tromper",
+      "body": ""
+    }
+  ]
+}

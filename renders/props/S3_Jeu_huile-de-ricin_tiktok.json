@@ -1,0 +1,26 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#4A7C59",
+  "accentColor": "#C4763A",
+  "semaine": "S3",
+  "phase": "Découverte",
+  "pilier": "Produit & Région",
+  "datePublication": "2026-03-26 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Cils de gazelle : le secret le mieux gardé de ta grand-mère",
+  "hookDarija": "رموش الغزالة: السرّ اللي مخبّياه جدّتك",
+  "productName": "Huile de Ricin",
+  "scriptAngle": "Gros plan cils longs naturels > reveal huile de ricin. Application mascara-style avec brosse. Montrer aussi sourcils et cheveux. Texture épaisse = efficacité.",
+  "storytellingEmotion": "Les yeux qui parlent commencent par des cils qui poussent",
+  "cta": "Commande ton huile de ricin + applicateur → lien bio",
+  "hashtags": "#jodhur #huiledericin #castoroil #cilslongs #sourcils #poussecheveux #beauténaturelle #beautémarocaine #cilsdebiche #soinnaturel #astucebeauté #lashgrowth",
+  "productImage": "https://jodhur.ma/img/ricin.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Gros plan cils longs naturels > reveal huile de ricin. Application mascara",
+    "style avec brosse. Montrer aussi sourcils et cheveux. Texture épaisse = efficacité."
+  ]
+}

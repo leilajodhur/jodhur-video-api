@@ -1,0 +1,52 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S7",
+  "phase": "Conversion",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-04-22 00:00:00",
+  "plateforme": "FB",
+  "hookFr": "Rencontre LEILA : ton experte beauté disponible 24h/24",
+  "hookDarija": "تعرّفي على ليلى : الخبيرة ديال جمالك 24h/24",
+  "productName": "LEILA Chatbot",
+  "scriptAngle": "Démo live écran : utilisateur pose question à LEILA > réponse personnalisée > recommandation produit > ajout panier. Montrer 3 scénarios : routine peau sèche, cadeau, problème acné. UX fluide.",
+  "storytellingEmotion": "La technologie au service de la tradition",
+  "cta": "Teste LEILA maintenant → lien bio",
+  "hashtags": "#jodhur #chatbot #leila #ia #beauténaturelle #beautémarocaine #innovation #techbeauté #personnalisation #serviceclient #ecommerce #shopping",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Démo live écran : utilisateur pose question à LEILA > réponse personnalisée > recommandation produit > ajout panier. Montrer 3 scénarios : routine peau sèche",
+    "cadeau",
+    "problème acné. UX fluide."
+  ],
+  "problemStatement": "Rencontre LEILA : ton experte beauté disponible 24h/24",
+  "steps": [
+    {
+      "number": 1,
+      "title": "Démo live écran : utilisateur pose question à…",
+      "desc": "Démo live écran : utilisateur pose question à LEILA > réponse personnalisée > recommandation produit > ajout panier. Montrer 3 scénarios : routine peau sèche",
+      "emoji": null,
+      "durationSec": 3
+    },
+    {
+      "number": 2,
+      "title": "cadeau",
+      "desc": "cadeau",
+      "emoji": null,
+      "durationSec": 3
+    },
+    {
+      "number": 3,
+      "title": "problème acné. UX fluide.",
+      "desc": "problème acné. UX fluide.",
+      "emoji": null,
+      "durationSec": 3
+    }
+  ],
+  "resultsText": "La technologie au service de la tradition"
+}

@@ -1,0 +1,26 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#8B4513",
+  "accentColor": "#D4AF37",
+  "semaine": "S2",
+  "phase": "Découverte",
+  "pilier": "Héritage & Émotion",
+  "datePublication": "2026-03-18 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Ma grand-mère ne connaissait qu'un seul sérum : l'argan",
+  "hookDarija": "جداتي ما عرفات غير سيروم واحد : أرغان",
+  "productName": "Huile d'Argan",
+  "scriptAngle": "Voix-off intime style grand-mère racontant. Images mains ridées mais belles de femme âgée. Gros plan yeux. Parallèle avec routine moderne. Émotion pure.",
+  "storytellingEmotion": "La beauté des mains qui travaillent l'argan depuis 50 ans",
+  "cta": "Offre à ta grand-mère ce qu'elle t'a transmis → lien bio",
+  "hashtags": "#jodhur #grandmère #jedda #huileargan #heritage #beauténaturelle #tradition #amazigh #savoirfaire #emotionbeauté #beautémarocaine #storytime #maroc",
+  "productImage": "https://jodhur.ma/img/argan.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "off intime style grand",
+    "mère racontant. Images mains ridées mais belles de femme âgée. Gros plan yeux. Parallèle avec routine moderne. Émotion pure."
+  ]
+}

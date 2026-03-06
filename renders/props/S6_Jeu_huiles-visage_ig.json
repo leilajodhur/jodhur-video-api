@@ -1,0 +1,44 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S6",
+  "phase": "Éducation",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-04-16 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "Peau sèche ? Voici les 5 huiles qui vont tout changer",
+  "hookDarija": "بشرتك ناشفة؟ هاد 5 زيوت غادي يبدّلو كل شي",
+  "productName": "Huiles visage",
+  "scriptAngle": "Slide 1: visage peau sèche (illustratif). Slide 2: argan (vitamine E). Slide 3: ricin (acides gras). Slide 4: figue de barbarie (oméga 6). Slide 5: amande douce (émolliente). Slide 6: nigelle (réparatrice). Slide 7: comment les combiner.",
+  "storytellingEmotion": "La peau sèche n'est pas un problème, c'est un message",
+  "cta": "Quelle huile vas-tu essayer en premier ? Commente",
+  "hashtags": "#jodhur #peausèche #huilesvisage #hydratation #argan #ricin #figuredebarbarie #beauténaturelle #beautémarocaine #soinnaturel #skincareroutine #dryskin",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Slide 1: visage peau sèche (illustratif). Slide 2: argan (vitamine E). Slide 3: ricin (acides gras). Slide 4: figue de barbarie (oméga 6). Slide 5: amande douce (émolliente). Slide 6: nigelle (réparatrice). Slide 7: comment les combiner."
+  ],
+  "carouselTitle": "Peau sèche ? Voici les 5 huiles qui vont tout changer",
+  "saveText": "Enregistre 🔖 pour ne pas perdre ce guide",
+  "slides": [
+    {
+      "title": "Peau sèche ? Voici les 5 huiles qui vont tout changer",
+      "subtitle": "",
+      "body": "",
+      "highlight": "GUIDE"
+    },
+    {
+      "title": "Ce que tu dois savoir",
+      "body": "Slide 1: visage peau sèche (illustratif). Slide 2: argan (vitamine E). Slide 3: ricin (acides gras). Slide 4: figue de barbarie (oméga 6). Slide 5: amande douce (émolliente). Slide 6: nigelle (réparatrice). Slide 7: comment les combiner.",
+      "highlight": ""
+    },
+    {
+      "title": "Quelle huile vas-tu essayer en premier ? Commente",
+      "body": ""
+    }
+  ]
+}

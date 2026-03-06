@@ -1,0 +1,25 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#C4763A",
+  "accentColor": "#FF4444",
+  "semaine": "S3",
+  "phase": "Découverte",
+  "pilier": "Promo & Offres",
+  "datePublication": "2026-03-28 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Flash 48h : Trio Sanouj nigelle + ricin + argan à 139 MAD",
+  "hookDarija": "فلاش 48 ساعة : تريو صنوج ب139 درهم بصح",
+  "productName": "Trio Sanouj",
+  "scriptAngle": "Montrer les 3 flacons. Chaque produit = 1 bénéfice clé. Prix total normal vs prix flash. Compte à rebours visuel. Urgence authentique.",
+  "storytellingEmotion": "3 huiles, 0 chimie, 1000 résultats",
+  "cta": "Commande avant dimanche minuit → lien bio",
+  "hashtags": "#jodhur #flash #promo #triosanouj #huiledenigelle #huiledericin #huileargan #offrelimitée #beauténaturelle #beautémarocaine #bonplan #cosmetiquenaturel",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Montrer les 3 flacons. Chaque produit = 1 bénéfice clé. Prix total normal vs prix flash. Compte à rebours visuel. Urgence authentique."
+  ]
+}

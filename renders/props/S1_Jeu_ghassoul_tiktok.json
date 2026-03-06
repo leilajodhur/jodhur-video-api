@@ -1,0 +1,27 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#4A7C59",
+  "accentColor": "#C4763A",
+  "semaine": "S1",
+  "phase": "Découverte",
+  "pilier": "Produit & Région",
+  "datePublication": "2026-03-12 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "L'argile la plus rare au monde vient d'un seul endroit",
+  "hookDarija": "هاد الطين النادر فالعالم كيجي من بلاصة وحدة",
+  "productName": "Ghassoul",
+  "scriptAngle": "Drone vallée du Moulouya > zoom mines > extraction artisanale > texture en main > application visage. Voix-off facts : seul gisement au monde, utilisé depuis le 8e siècle.",
+  "storytellingEmotion": "Fierté du patrimoine géologique marocain - Un trésor sous nos pieds",
+  "cta": "Teste le ghassoul authentique → lien bio",
+  "hashtags": "#jodhur #ghassoul #rassoul #argile #masquevisage #claymask #beautémarocaine #cosmetiquenaturel #skincaremaroc #ingredientnaturel #moyen-atlas #moroccanbeauty #haircare #purifiant",
+  "productImage": "https://jodhur.ma/img/ghassoul.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Drone vallée du Moulouya > zoom mines > extraction artisanale > texture en main > application visage. Voix",
+    "off facts : seul gisement au monde",
+    "utilisé depuis le 8e siècle."
+  ]
+}

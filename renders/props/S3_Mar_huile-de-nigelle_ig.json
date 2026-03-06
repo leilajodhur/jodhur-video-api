@@ -1,0 +1,46 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S3",
+  "phase": "Découverte",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-03-24 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "Protocole nigelle anti-taches : 4 semaines pour voir la différence",
+  "hookDarija": "بروتوكول الصنوج ضد البقع : 4 أسابيع وتشوف الفرق",
+  "productName": "Huile de Nigelle",
+  "scriptAngle": "Slide 1: avant/après réaliste. Slide 2: semaine 1-2 application locale soir. Slide 3: semaine 3-4 mélange argan+nigelle. Slide 4: fréquence et quantité exactes. Slide 5: résultats attendus (réalistes). Slide 6: produits recommandés.",
+  "storytellingEmotion": "La patience est le premier ingrédient de tout protocole beauté",
+  "cta": "Sauvegarde et commence ton protocole dès ce soir",
+  "hashtags": "#jodhur #sanouj #huiledenigelle #protocolepeau #antitaches #skincareroutine #beauténaturelle #peauéclatante #beautémarocaine #conseilpeau #soinnaturel #avantaprès",
+  "productImage": "https://jodhur.ma/img/nigelle.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Slide 1: avant/après réaliste. Slide 2: semaine 1",
+    "2 application locale soir. Slide 3: semaine 3",
+    "4 mélange argan+nigelle. Slide 4: fréquence et quantité exactes. Slide 5: résultats attendus (réalistes). Slide 6: produits recommandés."
+  ],
+  "carouselTitle": "Protocole nigelle anti-taches : 4 semaines pour voir la diff",
+  "saveText": "Enregistre 🔖 pour ne pas perdre ce guide",
+  "slides": [
+    {
+      "title": "Protocole nigelle anti-taches : 4 semaines pour voir la diff",
+      "subtitle": "",
+      "body": "",
+      "highlight": "GUIDE"
+    },
+    {
+      "title": "Ce que tu dois savoir",
+      "body": "Slide 1: avant/après réaliste. Slide 2: semaine 1\n2 application locale soir. Slide 3: semaine 3\n4 mélange argan+nigelle. Slide 4: fréquence et quantité exactes. Slide 5: résultats attendus (réalistes). Slide 6: produits recommandés.",
+      "highlight": ""
+    },
+    {
+      "title": "Sauvegarde et commence ton protocole dès ce soir",
+      "body": ""
+    }
+  ]
+}

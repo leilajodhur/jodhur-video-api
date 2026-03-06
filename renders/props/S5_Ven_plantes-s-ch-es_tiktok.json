@@ -1,0 +1,26 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#4A7C59",
+  "accentColor": "#C4763A",
+  "semaine": "S5",
+  "phase": "Éducation",
+  "pilier": "Produit & Région",
+  "datePublication": "2026-04-10 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Romarin, thym, verveine : la pharmacie du Moyen Atlas",
+  "hookDarija": "أزير، الزعتر، لويزة :  صيدلية ديال الأطلس المتوسط",
+  "productName": "Plantes séchées",
+  "scriptAngle": "Marché d'herbes (souq) > gros plans plantes séchées > infusion > vapeur. Chaque plante = 1 bénéfice rapide. Ambiance montagneuse authentique. Voix-off darija chaleureuse.",
+  "storytellingEmotion": "Les montagnes du Maroc sont la plus vieille pharmacie du monde",
+  "cta": "Dis-nous quelle tisane te manque le plus en commentaire",
+  "hashtags": "#jodhur #plantesséchées #herbes #moyenatlas #azir #zatar #lwiza #phytothérapie #beauténaturelle #beautémarocaine #tisane #biendormir #natural",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Marché d'herbes (souq) > gros plans plantes séchées > infusion > vapeur. Chaque plante = 1 bénéfice rapide. Ambiance montagneuse authentique. Voix",
+    "off darija chaleureuse."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#8B4513",
+  "accentColor": "#D4AF37",
+  "semaine": "S6",
+  "phase": "Éducation",
+  "pilier": "Héritage & Émotion",
+  "datePublication": "2026-04-15 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Derrière chaque flacon, 12 femmes et un rêve de coopérative",
+  "hookDarija": "وراء كل قنّينة ،  نساء وحلم تعاوني حقيقي",
+  "productName": "Coopérative",
+  "scriptAngle": "Portrait authentique : visages femmes coopérative Ennajah. Leur quotidien. Rires. Travail. Fier regard caméra. Voix-off : chiffres impact (revenus, familles, enfants scolarisés).",
+  "storytellingEmotion": "L'entrepreneuriat féminin rural change des familles entières",
+  "cta": "Soutiens ces femmes en choisissant JODHUR → lien bio",
+  "hashtags": "#jodhur #coopérative #femmesmarocaines #impactsocial #entrepreneuriatféminin #beautémarocaine #commerceéquitable #artisanat #maroc #empowerment #cooperative",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Portrait authentique : visages femmes coopérative Ennajah. Leur quotidien. Rires. Travail. Fier regard caméra. Voix",
+    "off : chiffres impact (revenus",
+    "familles",
+    "enfants scolarisés)."
+  ]
+}

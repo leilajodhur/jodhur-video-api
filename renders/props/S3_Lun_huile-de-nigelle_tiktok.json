@@ -1,0 +1,26 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#4A7C59",
+  "accentColor": "#C4763A",
+  "semaine": "S3",
+  "phase": "Découverte",
+  "pilier": "Produit & Région",
+  "datePublication": "2026-03-23 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Le Prophète l'a recommandée : la science confirme aujourd'hui",
+  "hookDarija": "الرسول ﷺ وصّى بها… والعلم كيثبت اليوم",
+  "productName": "Huile de Nigelle",
+  "scriptAngle": "Intro hadith (texte arabe animé) > transition vers études scientifiques (thymoquinone anti-inflammatoire). Montrer graines noires > presse > huile dorée. Propriétés en bullet rapide.",
+  "storytellingEmotion": "Entre foi et science, la nigelle ne déçoit jamais",
+  "cta": "Découvre notre huile de nigelle pure → lien bio",
+  "hashtags": "#jodhur #huiledenigelle #sanouj #habbasouda #blackseed #beauténaturelle #skincare #propheticmedicine #thymoquinone #beautémarocaine #soinnaturel #antiinflammatoire #immunité",
+  "productImage": "https://jodhur.ma/img/nigelle.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Intro hadith (texte arabe animé) > transition vers études scientifiques (thymoquinone anti",
+    "inflammatoire). Montrer graines noires > presse > huile dorée. Propriétés en bullet rapide."
+  ]
+}

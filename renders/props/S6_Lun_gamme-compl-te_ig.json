@@ -1,0 +1,44 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#2C5F2E",
+  "accentColor": "#D4AF37",
+  "semaine": "S6",
+  "phase": "Éducation",
+  "pilier": "Éducation Beauté",
+  "datePublication": "2026-04-13 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "Protocole anti-acné 100% naturel en 5 étapes validées",
+  "hookDarija": "بروتوكول ضد حبّ الشباب 100% طبيعي ف 5 خطوات",
+  "productName": "Gamme complète",
+  "scriptAngle": "Slide 1: titre + peau problématique. Slide 2: nettoyage savon beldi. Slide 3: purification ghassoul+nila. Slide 4: traitement local nigelle. Slide 5: hydratation eau de rose. Slide 6: protection argan légère. Slide 7: fréquence hebdo + rappel patience.",
+  "storytellingEmotion": "L'acné n'est pas une fatalité quand la nature est ton alliée",
+  "cta": "Sauvegarde ce protocole et commence dès demain",
+  "hashtags": "#jodhur #acné #protocolenaturel #skincare #peauacnéique #beauténaturelle #beautémarocaine #savonbeldi #ghassoul #sanouj #eauderose #soinnaturel",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Slide 1: titre + peau problématique. Slide 2: nettoyage savon beldi. Slide 3: purification ghassoul+nila. Slide 4: traitement local nigelle. Slide 5: hydratation eau de rose. Slide 6: protection argan légère. Slide 7: fréquence hebdo + rappel patience."
+  ],
+  "carouselTitle": "Protocole anti-acné 100% naturel en 5 étapes validées",
+  "saveText": "Enregistre 🔖 pour ne pas perdre ce guide",
+  "slides": [
+    {
+      "title": "Protocole anti-acné 100% naturel en 5 étapes validées",
+      "subtitle": "",
+      "body": "",
+      "highlight": "GUIDE"
+    },
+    {
+      "title": "Ce que tu dois savoir",
+      "body": "Slide 1: titre + peau problématique. Slide 2: nettoyage savon beldi. Slide 3: purification ghassoul+nila. Slide 4: traitement local nigelle. Slide 5: hydratation eau de rose. Slide 6: protection argan légère. Slide 7: fréquence hebdo + rappel patience.",
+      "highlight": ""
+    },
+    {
+      "title": "Sauvegarde ce protocole et commence dès demain",
+      "body": ""
+    }
+  ]
+}

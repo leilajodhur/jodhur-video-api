@@ -1,0 +1,27 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#8B4513",
+  "accentColor": "#D4AF37",
+  "semaine": "S1",
+  "phase": "Découverte",
+  "pilier": "Héritage & Émotion",
+  "datePublication": "2026-03-09 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Du savon d'Alep à votre hammam : 3000 ans de beauté",
+  "hookDarija": "من صابون الحلب لحمّامك… 3000 عام من الجمال الأصيل",
+  "productName": "Savon Beldi",
+  "scriptAngle": "Voyage visuel Syrie>Maroc. Transition sablier historique. Montrer texture noire du savon, geste kessa sur peau, vapeur hammam.",
+  "storytellingEmotion": "Dkhoul l'hammam machi bhal khroujo - Le hammam transforme pas que la peau",
+  "cta": "Découvre notre savon beldi artisanal → lien bio",
+  "hashtags": "#jodhur #savonbeldi #savonnoir #hammam #beauténaturelle #hammammarocain #skincaremaroc #cosmetiquesartisanaux #beautémarocaine #rituelbeauté #naturalbeauty #moroccanskincare #savonnaturel",
+  "productImage": "https://jodhur.ma/img/savon-beldi.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "Voyage visuel Syrie>Maroc. Transition sablier historique. Montrer texture noire du savon",
+    "geste kessa sur peau",
+    "vapeur hammam."
+  ]
+}

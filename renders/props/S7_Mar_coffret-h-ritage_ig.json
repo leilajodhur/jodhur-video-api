@@ -1,0 +1,45 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#C4763A",
+  "accentColor": "#FF4444",
+  "semaine": "S7",
+  "phase": "Conversion",
+  "pilier": "Promo & Offres",
+  "datePublication": "2026-04-21 00:00:00",
+  "plateforme": "IG",
+  "hookFr": "Coffret Héritage : les 8 trésors dans un écrin artisanal à 449 MAD",
+  "hookDarija": "صندوق الإرث : 8 كنوز فعلبة فعلبة تقليدية ب449 درهم",
+  "productName": "Coffret Héritage",
+  "scriptAngle": "Slide 1: coffret fermé élégant. Slide 2: ouverture reveal. Slide 3-4: chaque produit avec son nom et origine. Slide 5: valeur totale 680 MAD barrée. Slide 6: idée cadeau parfaite + CTA. Packaging bois gravé + zellige.",
+  "storytellingEmotion": "Offrir ce coffret c'est offrir un voyage à travers le Maroc",
+  "cta": "Commande le Coffret Héritage → édition limitée 100 pièces",
+  "hashtags": "#jodhur #coffrethéritage #idéecadeau #coffretbeauté #luxeartisanal #beauténaturelle #beautémarocaine #premium #coffretprestige #artisanatmarocain #cadeau",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "whatsapp",
+  "benefits": [
+    "Slide 1: coffret fermé élégant. Slide 2: ouverture reveal. Slide 3",
+    "4: chaque produit avec son nom et origine. Slide 5: valeur totale 680 MAD barrée. Slide 6: idée cadeau parfaite + CTA. Packaging bois gravé + zellige."
+  ],
+  "carouselTitle": "Coffret Héritage : les 8 trésors dans un écrin artisanal à 4",
+  "saveText": "Enregistre 🔖 pour ne pas perdre ce guide",
+  "slides": [
+    {
+      "title": "Coffret Héritage : les 8 trésors dans un écrin artisanal à 4",
+      "subtitle": "",
+      "body": "",
+      "highlight": "GUIDE"
+    },
+    {
+      "title": "Ce que tu dois savoir",
+      "body": "Slide 1: coffret fermé élégant. Slide 2: ouverture reveal. Slide 3\n4: chaque produit avec son nom et origine. Slide 5: valeur totale 680 MAD barrée. Slide 6: idée cadeau parfaite + CTA. Packaging bois gravé + zellige.",
+      "highlight": ""
+    },
+    {
+      "title": "Commande le Coffret Héritage → édition limitée 100 pièces",
+      "body": ""
+    }
+  ]
+}

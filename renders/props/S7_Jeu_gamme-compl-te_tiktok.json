@@ -1,0 +1,28 @@
+{
+  "brandName": "JODHUR",
+  "brandLogo": "https://jodhur.ma/logo.svg",
+  "whatsappNumber": "+212600000000",
+  "websiteUrl": "jodhur.ma",
+  "primaryColor": "#8B4513",
+  "accentColor": "#D4AF37",
+  "semaine": "S7",
+  "phase": "Conversion",
+  "pilier": "Héritage & Émotion",
+  "datePublication": "2026-04-23 00:00:00",
+  "plateforme": "TikTok",
+  "hookFr": "Elles ont testé, elles témoignent : 3 clientes, 3 histoires",
+  "hookDarija": "جربو وشهدو : 3 زبونات ، 3 قصص حقيقية",
+  "productName": "Gamme complète",
+  "scriptAngle": "3 témoignages vidéo courts (10s chacun) : cliente acné résolue, cliente cheveux renforcés, cliente routine hammam adoptée. Authentique, pas scripté. Visages réels.",
+  "storytellingEmotion": "Les meilleurs ambassadeurs ce sont les résultats",
+  "cta": "Rejoins la communauté JODHUR → lien bio",
+  "hashtags": "#jodhur #témoignage #avis #avisclient #résultats #beauténaturelle #beautémarocaine #avantaprès #clientesatisfaite #skincare #communauté #confiance",
+  "productImage": "https://jodhur.ma/img/default-product.jpg",
+  "ctaVariant": "link-bio",
+  "benefits": [
+    "3 témoignages vidéo courts (10s chacun) : cliente acné résolue",
+    "cliente cheveux renforcés",
+    "cliente routine hammam adoptée. Authentique",
+    "pas scripté. Visages réels."
+  ]
+}
