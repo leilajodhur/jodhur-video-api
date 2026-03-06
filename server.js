@@ -40,4 +40,6 @@ app.post('/render', (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 المصنع يعمل الآن على Railway بالمنفذ: ${PORT}`);
+    // test new deploy
+
 });
