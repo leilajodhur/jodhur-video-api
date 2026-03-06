@@ -14,7 +14,9 @@
 //   Scène 2 : Steps x3      (60–480f / 2–16s) → 140f/step
 //   Scène 3 : Résultat+CTA  (480–600f/ 16–20s)
 // ============================================================
-
+// ============================================================
+// U2_TutoPunch — Template Universel 20s · Éducation & Tutorial
+// ============================================================
 import React from 'react';
 import {
   AbsoluteFill,
@@ -81,7 +83,6 @@ const SceneProblem: React.FC<{
       padding: '0 56px',
       gap: 28,
     }}>
-      {/* Icône problème */}
       <div style={{
         opacity: interpolate(frame, [0, 10], [0, 1], { extrapolateRight: 'clamp' }),
         fontSize: 96,
@@ -89,8 +90,6 @@ const SceneProblem: React.FC<{
       }}>
         ❌
       </div>
-
-      {/* Texte mot par mot */}
       <div style={{
         display: 'flex',
         flexWrap: 'wrap',
@@ -114,8 +113,6 @@ const SceneProblem: React.FC<{
           );
         })}
       </div>
-
-      {/* Darija */}
       <div style={{
         opacity: interpolate(frame, [35, 55], [0, 1], { extrapolateRight: 'clamp' }),
         direction: 'rtl',
@@ -136,17 +133,18 @@ const SceneProblem: React.FC<{
   );
 };
 
-// ─── Scène 2 : UNE ÉTAPE (réutilisée 3×) ─────────────────────
+// ─── Scène 2 : UNE ÉTAPE (الخطأ كان هنا وتم إصلاحه) ─────────────────────
 const SceneStep: React.FC<{
   stepNumber: number;
   title: string;
   desc: string;
   emoji?: string;
   productImage: string;
+  backgroundImage?: string; // ✅ أضفنا هذا السطر
   accentColor: string;
   primaryColor: string;
   totalSteps: number;
-}> = ({ stepNumber, title, desc, emoji, productImage, accentColor, primaryColor, totalSteps }) => {
+}> = ({ stepNumber, title, desc, emoji, productImage, backgroundImage, accentColor, primaryColor, totalSteps }) => { // ✅ أضفنا backgroundImage هنا
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
 
@@ -162,21 +160,19 @@ const SceneStep: React.FC<{
 
   return (
     <AbsoluteFill style={{ overflow: 'hidden' }}>
-      {/* Image fond Ken Burns */}
       <Img
-        src={backgroundImage || productImage || "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1080"} style={{
-        position: 'absolute', width: '100%', height: '100%',
-        objectFit: 'cover',
-        transform: `scale(${zoom})`,
-        filter: 'brightness(0.55)',
-      }} />
+        src={backgroundImage || productImage || "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1080"} 
+        style={{
+          position: 'absolute', width: '100%', height: '100%',
+          objectFit: 'cover',
+          transform: `scale(${zoom})`,
+          filter: 'brightness(0.55)',
+        }} />
 
-      {/* Overlay gradient */}
       <AbsoluteFill style={{
         background: `linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(28,15,0,0.85) 100%)`,
       }} />
 
-      {/* Barre de progression en haut */}
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 6, background: 'rgba(255,255,255,0.15)' }}>
         <div style={{
           height: '100%',
@@ -186,7 +182,6 @@ const SceneStep: React.FC<{
         }} />
       </div>
 
-      {/* Contenu principal */}
       <div style={{
         position: 'absolute',
         top: 0, bottom: 0, left: 0, right: 0,
@@ -198,7 +193,6 @@ const SceneStep: React.FC<{
         transform: `translateX(${slideIn}px)`,
         gap: 20,
       }}>
-        {/* Numéro + emoji */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <StepNumber n={stepNumber} color={accentColor} />
           {emoji && (
@@ -211,7 +205,6 @@ const SceneStep: React.FC<{
           )}
         </div>
 
-        {/* Titre étape */}
         <div style={{ opacity: titleOpacity }}>
           <span style={{
             fontFamily: FONTS.display,
@@ -225,7 +218,6 @@ const SceneStep: React.FC<{
           </span>
         </div>
 
-        {/* Description */}
         <div style={{
           opacity: descOpacity,
           background: 'rgba(255,255,255,0.1)',
@@ -249,7 +241,7 @@ const SceneStep: React.FC<{
   );
 };
 
-// ─── Scène 3 : RÉSULTAT + CTA (480–600f / 16–20s) ────────────
+// ─── Scène 3 : RÉSULTAT + CTA ────────────────────────────
 const SceneResult: React.FC<{
   storytellingEmotion: string;
   cta: string;
@@ -261,13 +253,7 @@ const SceneResult: React.FC<{
 }> = ({ storytellingEmotion, cta, whatsappNumber, websiteUrl, brandName, hashtags, primaryColor }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-
-  const scale = spring({
-    fps, frame,
-    config: { damping: 12, stiffness: 180 },
-    from: 0.85, to: 1,
-  });
-
+  const scale = spring({ fps, frame, config: { damping: 12, stiffness: 180 }, from: 0.85, to: 1 });
   const topTags = hashtags.split(/\s+/).filter(t => t.startsWith('#')).slice(0, 4).join(' ');
 
   return (
@@ -280,15 +266,7 @@ const SceneResult: React.FC<{
       gap: 32,
       transform: `scale(${scale})`,
     }}>
-      {/* Checkmark animé */}
-      <div style={{
-        fontSize: 100,
-        opacity: interpolate(frame, [0, 15], [0, 1], { extrapolateRight: 'clamp' }),
-      }}>
-        ✅
-      </div>
-
-      {/* Message résultat */}
+      <div style={{ fontSize: 100, opacity: interpolate(frame, [0, 15], [0, 1], { extrapolateRight: 'clamp' }) }}>✅</div>
       <div style={{
         background: 'rgba(255,255,255,0.1)',
         backdropFilter: 'blur(8px)',
@@ -306,13 +284,9 @@ const SceneResult: React.FC<{
           lineHeight: 1.4,
           fontStyle: 'italic',
         }}>
-          "{storytellingEmotion.length > 80
-            ? storytellingEmotion.slice(0, 80) + '…'
-            : storytellingEmotion}"
+          "{storytellingEmotion.length > 80 ? storytellingEmotion.slice(0, 80) + '…' : storytellingEmotion}"
         </span>
       </div>
-
-      {/* CTA Overlay */}
       <CTAOverlay
         ctaText={cta}
         whatsappNumber={whatsappNumber}
@@ -321,41 +295,23 @@ const SceneResult: React.FC<{
         startFrame={20}
         variant={whatsappNumber ? 'whatsapp' : 'link-bio'}
       />
-
-      {/* Hashtags */}
-      {topTags && (
-        <span style={{
-          position: 'absolute', bottom: 60, left: 0, right: 0,
-          textAlign: 'center',
-          fontFamily: FONTS.body,
-          fontSize: 26,
-          color: 'rgba(255,255,255,0.35)',
-          opacity: interpolate(frame, [25, 45], [0, 1], { extrapolateRight: 'clamp' }),
-        }}>
-          {topTags}
-        </span>
-      )}
     </AbsoluteFill>
   );
 };
 
-// ─── Parsing du script_angle → steps ─────────────────────────
+// ─── Parsing ───────────────────────────
 function parseSteps(scriptAngle: string): Array<{ title: string; desc: string; emoji: string }> {
   const EMOJI_MAP: Record<string, string> = {
     vapeur: '♨️', savon: '🧼', gommage: '✋', ghassoul: '🫙', rinçage: '💧', rincage: '💧',
     hydrat: '💆', argan: '🌿', spray: '💦', brume: '💦', masque: '🫙', cils: '👁️',
     cuir: '💆', mains: '🤲', démaquil: '✨', mélange: '🥄', application: '🖐️',
   };
-
-  // Cherche patterns "1) titre desc", "Étape 1:", "Step 1:"
   const patterns = [
     /(\d+)\)\s*([^.:\n]{5,60})(?:[.:]?\s*(.{0,80}))?/g,
     /[Éé]tape\s*(\d+)\s*[:\-]\s*([^.\n]{5,60})(?:[.\-]?\s*(.{0,80}))?/g,
     /Slide\s*(\d+)\s*[:\-]\s*([^.\n]{5,80})/g,
   ];
-
   const steps: Array<{ title: string; desc: string; emoji: string }> = [];
-
   for (const pattern of patterns) {
     let match;
     pattern.lastIndex = 0;
@@ -363,48 +319,35 @@ function parseSteps(scriptAngle: string): Array<{ title: string; desc: string; e
       const title = (match[2] || '').trim().slice(0, 50);
       const desc  = (match[3] || '').trim().slice(0, 80);
       if (title.length < 4) continue;
-
       const emojiKey = Object.keys(EMOJI_MAP).find(k => title.toLowerCase().includes(k) || desc.toLowerCase().includes(k));
       steps.push({ title, desc, emoji: emojiKey ? EMOJI_MAP[emojiKey] : '✨' });
     }
     if (steps.length >= 3) break;
   }
-
-  // Fallback si parsing échoue
   while (steps.length < 3) {
     steps.push({ title: `Étape ${steps.length + 1}`, desc: scriptAngle.slice(0, 60), emoji: '✨' });
   }
-
   return steps.slice(0, 3);
 }
 
 // ─── Composition principale U2 ────────────────────────────────
 export const U2_TutoPunch: React.FC<UniversalVideoProps> = (props) => {
   const {
-    brandName, hookFr, hookDarija, productImage = '', scriptAngle = '',
-    storytellingEmotion = '', cta = '', hashtags = '',
+    brandName, hookFr, hookDarija, productImage = '', backgroundImage = '', // ✅ أضفنا backgroundImage هنا
+    scriptAngle = '', storytellingEmotion = '', cta = '', hashtags = '',
     whatsappNumber, websiteUrl,
     pilier = '', primaryColor = COLORS.primary, accentColor = COLORS.gold,
   } = props;
 
   const steps = parseSteps(scriptAngle);
-  const STEP_DURATION = 140; // frames par step
+  const STEP_DURATION = 140;
 
   return (
     <AbsoluteFill>
       <BrandWatermark brandName={brandName} />
-
-      {/* Scène 1 : Problème (0–60f) */}
       <Sequence from={0} durationInFrames={60}>
-        <SceneProblem
-          hookFr={hookFr}
-          hookDarija={hookDarija}
-          primaryColor={primaryColor}
-          accentColor={accentColor}
-        />
+        <SceneProblem hookFr={hookFr} hookDarija={hookDarija} primaryColor={primaryColor} accentColor={accentColor} />
       </Sequence>
-
-      {/* Scènes 2a/2b/2c : 3 steps (60–480f) */}
       {steps.map((step, i) => (
         <Sequence key={i} from={60 + i * STEP_DURATION} durationInFrames={STEP_DURATION}>
           <SceneStep
@@ -413,24 +356,15 @@ export const U2_TutoPunch: React.FC<UniversalVideoProps> = (props) => {
             desc={step.desc}
             emoji={step.emoji}
             productImage={productImage}
+            backgroundImage={backgroundImage} // ✅ مررنا القيمة هنا
             accentColor={accentColor}
             primaryColor={primaryColor}
             totalSteps={steps.length}
           />
         </Sequence>
       ))}
-
-      {/* Scène 3 : Résultat + CTA (480–600f) */}
       <Sequence from={480} durationInFrames={120}>
-        <SceneResult
-          storytellingEmotion={storytellingEmotion}
-          cta={cta}
-          whatsappNumber={whatsappNumber}
-          websiteUrl={websiteUrl}
-          brandName={brandName}
-          hashtags={hashtags}
-          primaryColor={primaryColor}
-        />
+        <SceneResult storytellingEmotion={storytellingEmotion} cta={cta} whatsappNumber={whatsappNumber} websiteUrl={websiteUrl} brandName={brandName} hashtags={hashtags} primaryColor={primaryColor} />
       </Sequence>
     </AbsoluteFill>
   );
