@@ -1,3 +1,4 @@
+console.log("🚀 VERSION: 2.0 - NEW CODE LOADED");
 const express = require('express');
 const { exec } = require('child_process');
 const path = require('path'); // إضافة ضرورية للتعامل مع مسارات الملفات
@@ -43,3 +44,4 @@ app.listen(PORT, '0.0.0.0', () => {
     // test new deploy
 
 });
+
