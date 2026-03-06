@@ -1,0 +1,28 @@
+{
+  "name": "remotion-cosmetics-maroc",
+  "version": "1.0.0",
+  "description": "Templates Remotion pour marketing cosmétiques JODHUR — TikTok / Reels / Shorts",
+  "scripts": {
+    "start": "node server.js",
+    "studio": "npx remotion studio",
+    "render:t1": "npx remotion render T1-PromoFlash out/T1_PromoFlash.mp4",
+    "render:t2": "npx remotion render T2-HeritageStory out/T2_HeritageStory.mp4",
+    "render:t3": "npx remotion render T3-ProduitRegion out/T3_ProduitRegion.mp4",
+    "render:t4": "npx remotion render T4-TutorialRoutine out/T4_TutorialRoutine.mp4",
+    "render:t5": "npx remotion render T5-CarouselAnime out/T5_CarouselAnime.mp4",
+    "render:all": "npm run render:t1 && npm run render:t2 && npm run render:t3 && npm run render:t4 && npm run render:t5"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "express": "^5.2.1",
+    "puppeteer": "^21.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
+  }
+}
