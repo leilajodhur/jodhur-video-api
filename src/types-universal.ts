@@ -1,26 +1,25 @@
 // ============================================================
 // types-universal.ts — Props universel pour full automation
-// (Version Rapide : 15s - 20s)
 // ============================================================
 
 export interface ContentRow {
-  semaine:                 string;
-  phase:                   string;
-  jour:                    string;
-  date_publication:        string;
-  pilier:                  string;
-  format:                  string;
-  produit_principal:       string;
+  semaine:               string;
+  phase:                 string;
+  jour:                  string;
+  date_publication:      string;
+  pilier:                string;
+  format:                string;
+  produit_principal:     string;
   produit_tags_shopify:  string;
-  plateforme_primaire:     string;
+  plateforme_primaire:   string;
   plateformes_repurpose: string;
-  hook_fr:                 string;
-  hook_darija:             string;
+  hook_fr:               string;
+  hook_darija:           string;
   script_angle:          string;
   storytelling_emotion:  string;
-  cta:                     string;
-  hashtags:                string;
-  horaire_optimal:         string;
+  cta:                   string;
+  hashtags:              string;
+  horaire_optimal:       string;
   status_brief:          string | null;
   status_script:         string | null;
   status_visual:         string | null;
@@ -33,11 +32,15 @@ export type TemplateId = 'U1-FlashHook' | 'U2-TutoPunch' | 'U3-StorySlide';
 export const FORMAT_TO_TEMPLATE: Record<string, TemplateId> = {
   'reel-15':         'U1-FlashHook',
   'reel-20':         'U1-FlashHook',
+  'reel-30':         'U1-FlashHook',
   'story':           'U1-FlashHook',
   'short':           'U1-FlashHook',
   'video-education': 'U2-TutoPunch',
   'video-tutorial':  'U2-TutoPunch',
+  'video-routine':   'U2-TutoPunch',
+  'video-60':        'U2-TutoPunch',
   'carousel':        'U3-StorySlide',
+  'carousel-5':      'U3-StorySlide',
   'guide':           'U3-StorySlide',
 };
 
@@ -74,16 +77,16 @@ export interface UniversalVideoProps {
   promoPriceMAD?:     number; 
   promoCode?:         string; 
   urgencyText?:       string; 
-  benefits?:          string[]; // MAX 2 BÉNÉFICES COURTS
+  benefits?:          string[]; // MAX 2
   region?:            string; 
   heritageYears?:     string; 
 
   problemStatement?:  string; 
-  steps?:             TutoStep[]; // MAX 2-3 ÉTAPES RAPIDES (4s chacune)
+  steps?:             TutoStep[]; // MAX 2-3
   resultsText?:       string; 
   tipBonus?:          string; 
 
-  slides?:            SlideData[]; // MAX 4 SLIDES (5s chacune)
+  slides?:            SlideData[]; // MAX 4
   carouselTitle?:     string; 
   saveText?:          string; 
 }
@@ -94,16 +97,22 @@ export interface TutoStep {
   desc:        string;
   image?:      string;
   emoji?:      string;
-  durationSec: number; // Forcer à 3 ou 4 secondes max dans n8n
+  durationSec: number; 
 }
 
 export interface SlideData {
   title:      string;
   subtitle?:  string;
-  body:       string; // TRÈS COURT (max 5-6 mots)
+  body:       string;
   image?:     string;
   bgColor?:   string;
   textColor?: string;
   highlight?: string;
   emoji?:     string;
 }
+
+export type T1PromoFlashProps = UniversalVideoProps;
+export type T2HeritageStoryProps = UniversalVideoProps;
+export type T3ProduitRegionProps = UniversalVideoProps & { originFact: string; funFacts: string[]; extractionSteps: { label: string; durationSec: number }[]; extractionImage?: string; ingredients?: string; regionImage?: string; };
+export type T4TutorialProps = UniversalVideoProps;
+export type T5CarouselProps = UniversalVideoProps;
