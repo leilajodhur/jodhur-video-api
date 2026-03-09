@@ -52,7 +52,7 @@ const ScenePrice: React.FC<{ originalPriceMAD: number; promoPriceMAD: number; pr
   return (
     <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
       {backgroundImage && <AbsoluteFill><Img src={backgroundImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} /></AbsoluteFill>}
-      <AbsoluteFill style={{ background: 'linear-gradient(160deg, rgba(28,15,0,0.9) 0%, rgba(196,118,58,0.4) 100%)' }} />
+      <AbsoluteFill style={{ background: 'linear-gradient(160deg, rgba(28,15,0,0.3) 0%, rgba(196,118,58,0.4) 100%)' }} />
       <UrgencyBadge text={urgencyText} startFrame={0} top={100} right={40} />
       <div style={{ position: 'absolute', top: 120, left: 40 }}>
         <span style={{ fontFamily: FONTS.display, fontSize: 56, fontWeight: FONT_WEIGHTS.black, color: COLORS.gold }}>FLASH</span><br />
