@@ -1,5 +1,5 @@
 // ============================================================
-// types-universal.ts — Props universel pour full automation
+// types-universal.ts — Props universel pour full automation:
 // ============================================================
 
 export interface ContentRow {
