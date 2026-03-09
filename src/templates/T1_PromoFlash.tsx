@@ -23,7 +23,6 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; benefi
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const imageScale = spring({ fps, frame, config: { damping: 14, stiffness: 100 }, from: 1.08, to: 1 });
-
   return (
     <AbsoluteFill style={{ background: COLORS.cream }}>
       <AbsoluteFill>
@@ -31,19 +30,15 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; benefi
       </AbsoluteFill>
       <AbsoluteFill style={{ background: `linear-gradient(to top, ${COLORS.cream} 35%, transparent 70%)` }} />
       <div style={{ position: 'absolute', top: '68%', left: 40, right: 40 }}>
-        <span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.title, fontWeight: FONT_WEIGHTS.black, color: COLORS.primaryDark, display: 'block', textAlign: 'center' }}>
-          {productName}
-        </span>
+        <span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.title, fontWeight: FONT_WEIGHTS.black, color: COLORS.primaryDark, display: 'block', textAlign: 'center' }}>{productName}</span>
       </div>
-      <div style={{ position: 'absolute', top: '78%', left: 48, right: 48, display: 'flex', flexDirection: 'column', gap: 12 }}>
-        {benefits.slice(0, 2).map((b, i) => { // MAX 2 Benefits
-          const itemFrame = Math.max(0, frame - i * 10);
+      <div style={{ position: 'absolute', top: '76%', left: 48, right: 48, display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {benefits?.slice(0, 2).map((b, i) => {
+          const itemFrame = Math.max(0, frame - i * 12);
           const itemOpacity = interpolate(itemFrame, [0, 10], [0, 1], { extrapolateRight: 'clamp' });
           return (
             <div key={i} style={{ opacity: itemOpacity, display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div style={{ width: 32, height: 32, borderRadius: '50%', background: COLORS.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: 18, color: COLORS.white }}>✓</span>
-              </div>
+              <div style={{ width: 32, height: 32, borderRadius: '50%', background: COLORS.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ fontSize: 18, color: COLORS.white }}>✓</span></div>
               <span style={{ fontFamily: FONTS.body, fontSize: FONT_SIZES.body, fontWeight: FONT_WEIGHTS.semibold, color: COLORS.backgroundDark }}>{b}</span>
             </div>
           );
@@ -54,10 +49,9 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; benefi
 };
 
 const ScenePrice: React.FC<{ originalPriceMAD: number; promoPriceMAD: number; promoCode?: string; urgencyText: string; backgroundImage?: string; }> = ({ originalPriceMAD, promoPriceMAD, promoCode, urgencyText, backgroundImage }) => {
-  const frame = useCurrentFrame();
   return (
     <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
-      {backgroundImage && <Img src={backgroundImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} />}
+      {backgroundImage && <AbsoluteFill><Img src={backgroundImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} /></AbsoluteFill>}
       <AbsoluteFill style={{ background: 'linear-gradient(160deg, rgba(28,15,0,0.9) 0%, rgba(196,118,58,0.4) 100%)' }} />
       <UrgencyBadge text={urgencyText} startFrame={0} top={100} right={40} />
       <div style={{ position: 'absolute', top: 120, left: 40 }}>
@@ -75,28 +69,19 @@ export const T1_PromoFlash: React.FC<T1PromoFlashProps> = (props) => {
   return (
     <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
       <BrandWatermark brandName={props.brandName} />
-
-      {/* Hook : 0-60f (2s) */}
       <Sequence from={0} durationInFrames={60}>
         <SceneHook hookFr={props.hookFr} hookDarija={props.hookDarija} />
       </Sequence>
-
-      {/* Produit : 60-210f (5s) */}
       <Sequence from={60} durationInFrames={150}>
         <SceneProduct productName={props.productName} productImage={props.productImage} benefits={props.benefits || []} />
       </Sequence>
-
-      {/* Prix : 210-330f (4s) */}
-      <Sequence from={210} durationInFrames={120}>
+      <Sequence from={210} durationInFrames={150}>
         <ScenePrice originalPriceMAD={props.originalPriceMAD!} promoPriceMAD={props.promoPriceMAD!} promoCode={props.promoCode} urgencyText={props.urgencyText!} backgroundImage={props.backgroundImage} />
       </Sequence>
-
-      {/* CTA : 330-450f (4s) */}
-      <Sequence from={330} durationInFrames={120}>
+      <Sequence from={360} durationInFrames={90}>
         <AbsoluteFill style={{ background: GRADIENTS.promo, opacity: 0.95 }} />
         <CTAOverlay ctaText={props.cta} whatsappNumber={props.whatsappNumber} websiteUrl={props.websiteUrl} brandName={props.brandName} startFrame={0} variant="full" />
       </Sequence>
-
       <Sequence from={60} durationInFrames={150}>
         <TikTokCaption text={props.hookDarija} startFrame={0} rtl={true} animationMode="slide-up" bgColor={COLORS.backgroundDark} bottom={60} />
       </Sequence>
