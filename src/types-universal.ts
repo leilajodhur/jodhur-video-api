@@ -27,21 +27,21 @@ export interface ContentRow {
   url_post:              string | null;
 }
 
-export type TemplateId = 'U1-FlashHook' | 'U2-TutoPunch' | 'U3-StorySlide';
+export type TemplateId = 'T1-PromoFlash' | 'T2-HeritageStory' | 'T3-ProduitRegion' | 'T4-TutorialRoutine' | 'T5-CarouselAnime';
 
 export const FORMAT_TO_TEMPLATE: Record<string, TemplateId> = {
-  'reel-15':         'U1-FlashHook',
-  'reel-20':         'U1-FlashHook',
-  'reel-30':         'U1-FlashHook',
-  'story':           'U1-FlashHook',
-  'short':           'U1-FlashHook',
-  'video-education': 'U2-TutoPunch',
-  'video-tutorial':  'U2-TutoPunch',
-  'video-routine':   'U2-TutoPunch',
-  'video-60':        'U2-TutoPunch',
-  'carousel':        'U3-StorySlide',
-  'carousel-5':      'U3-StorySlide',
-  'guide':           'U3-StorySlide',
+  'reel-15':         'T1-PromoFlash',
+  'reel-20':         'T1-PromoFlash',
+  'reel-30':         'T1-PromoFlash',
+  'story':           'T1-PromoFlash',
+  'short':           'T1-PromoFlash',
+  'video-education': 'T4-TutorialRoutine',
+  'video-tutorial':  'T4-TutorialRoutine',
+  'video-routine':   'T4-TutorialRoutine',
+  'video-60':        'T4-TutorialRoutine',
+  'carousel':        'T5-CarouselAnime',
+  'carousel-5':      'T5-CarouselAnime',
+  'guide':           'T5-CarouselAnime',
 };
 
 export interface UniversalVideoProps {
