@@ -34,7 +34,7 @@ export const COLORS = {
   white:          '#FDFAF4',  // Blanc chaud
   black:          '#1A0F00',  // Noir chaud
   overlay:        'rgba(28,15,0,0.55)',
-  overlayHeavy:   'rgba(28,15,0,0.78)',
+  overlayHeavy:   'rgba(28,15,0,0.44)',
   overlayLight:   'rgba(245,237,216,0.88)',
   overlayGold:    'rgba(212,175,55,0.15)',
 
