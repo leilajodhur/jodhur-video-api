@@ -33,16 +33,16 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; benefi
         <Img src={productImage} style={{ width: '100%', height: '70%', objectFit: 'cover', transform: `scale(${imageScale})` }} />
       </AbsoluteFill>
       <AbsoluteFill style={{ background: `linear-gradient(to top, ${COLORS.cream} 35%, transparent 70%)` }} />
-      <div style={{ position: 'absolute', top: '68%', left: 40, right: 40 }}>
+      <div style={{ position: 'absolute', top: '60%', left: 40, right: 40 }}>
         <span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.title, fontWeight: FONT_WEIGHTS.black, color: COLORS.primaryDark, display: 'block', textAlign: 'center' }}>{productName}</span>
       </div>
-      <div style={{ position: 'absolute', top: '76%', left: 48, right: 48, display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div style={{ position: 'absolute', top: '74%', left: 48, right: 48, display: 'flex', flexDirection: 'column', gap: 14 }}>
         {benefits?.slice(0, 2).map((b, i) => {
           const itemFrame = Math.max(0, frame - i * 12);
           const itemOpacity = interpolate(itemFrame, [0, 10], [0, 1], { extrapolateRight: 'clamp' });
           return (
-            <div key={i} style={{ opacity: itemOpacity, display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div style={{ width: 32, height: 32, borderRadius: '50%', background: COLORS.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ fontSize: 18, color: COLORS.white }}>✓</span></div>
+            <div key={i} style={{ opacity: itemOpacity, display: 'flex', alignItems: 'center', gap: 16 }}>
+              <div style={{ width: 36, height: 36, borderRadius: '50%', background: COLORS.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ fontSize: 20, color: COLORS.white }}>✓</span></div>
               <span style={{ fontFamily: FONTS.body, fontSize: FONT_SIZES.body, fontWeight: FONT_WEIGHTS.semibold, color: COLORS.backgroundDark }}>{b}</span>
             </div>
           );
