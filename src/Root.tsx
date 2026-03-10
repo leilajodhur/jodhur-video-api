@@ -1,5 +1,6 @@
 import React from 'react';
-import { Composition } from 'remotion';
+import { Composition, delayRender, continueRender } from 'remotion';
+
 // استيراد أدوات تحميل الخطوط
 import { loadFont as loadCairo } from "@remotion/google-fonts/Cairo";
 import { loadFont as loadPlayfair } from "@remotion/google-fonts/PlayfairDisplay";
@@ -21,7 +22,7 @@ Promise.all([
   continueRender(waitForFont);
 }).catch((err) => {
   console.error("خطأ في تحميل الخطوط:", err);
-  continueRender(waitForFont); // الاستمرار حتى لو فشل التحميل لتجنب تعليق السيرفر
+  continueRender(waitForFont); 
 });
 
 export const RemotionRoot: React.FC = () => {
