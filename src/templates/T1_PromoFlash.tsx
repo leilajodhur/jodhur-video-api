@@ -25,6 +25,10 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; benefi
   const imageScale = spring({ fps, frame, config: { damping: 14, stiffness: 100 }, from: 1.08, to: 1 });
   return (
     <AbsoluteFill style={{ background: COLORS.cream }}>
+      {/* تأثير إضاءة (Glow) خلف المنتج */}
+      <AbsoluteFill style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+         <div style={{ width: '80%', height: '50%', background: COLORS.goldLight, filter: 'blur(80px)', opacity: 0.3, borderRadius: '50%' }} />
+      </AbsoluteFill>
       <AbsoluteFill>
         <Img src={productImage} style={{ width: '100%', height: '70%', objectFit: 'cover', transform: `scale(${imageScale})` }} />
       </AbsoluteFill>
@@ -51,8 +55,10 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; benefi
 const ScenePrice: React.FC<{ originalPriceMAD: number; promoPriceMAD: number; promoCode?: string; urgencyText: string; backgroundImage?: string; }> = ({ originalPriceMAD, promoPriceMAD, promoCode, urgencyText, backgroundImage }) => {
   return (
     <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
-      {backgroundImage && <AbsoluteFill><Img src={backgroundImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} /></AbsoluteFill>}
-      <AbsoluteFill style={{ background: 'linear-gradient(160deg, rgba(28,15,0,0.3) 0%, rgba(196,118,58,0.4) 100%)' }} />
+      {/* الصورة أصبحت ساطعة أكثر */}
+      {backgroundImage && <AbsoluteFill><Img src={backgroundImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }} /></AbsoluteFill>}
+      {/* التدرج اللوني أصبح أخف ليبرز الصورة */}
+      <AbsoluteFill style={{ background: 'linear-gradient(160deg, rgba(28,15,0,0.4) 0%, rgba(196,118,58,0.3) 100%)' }} />
       <UrgencyBadge text={urgencyText} startFrame={0} top={100} right={40} />
       <div style={{ position: 'absolute', top: 120, left: 40 }}>
         <span style={{ fontFamily: FONTS.display, fontSize: 56, fontWeight: FONT_WEIGHTS.black, color: COLORS.gold }}>FLASH</span><br />
@@ -79,7 +85,11 @@ export const T1_PromoFlash: React.FC<T1PromoFlashProps> = (props) => {
         <ScenePrice originalPriceMAD={props.originalPriceMAD!} promoPriceMAD={props.promoPriceMAD!} promoCode={props.promoCode} urgencyText={props.urgencyText!} backgroundImage={props.backgroundImage} />
       </Sequence>
       <Sequence from={360} durationInFrames={90}>
-        <AbsoluteFill style={{ background: GRADIENTS.promo, opacity: 0.95 }} />
+        {/* الخاتمة السينمائية الجديدة - صورة مغبشة خلف الزر */}
+        <AbsoluteFill>
+          <Img src={props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(15px)', transform: 'scale(1.1)' }} />
+          <AbsoluteFill style={{ background: 'rgba(28,15,0,0.5)' }} />
+        </AbsoluteFill>
         <CTAOverlay ctaText={props.cta} whatsappNumber={props.whatsappNumber} websiteUrl={props.websiteUrl} brandName={props.brandName} startFrame={0} variant="full" />
       </Sequence>
       <Sequence from={60} durationInFrames={150}>
