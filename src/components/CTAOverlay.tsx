@@ -70,22 +70,23 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
     <div
       style={{
         position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
+        top: '25%', // هذا سيجعلها تظهر في الوسط تقريباً بدلاً من الأسفل
+        left: 40,
+        right: 40,
         transform: `translateY(${translateY}px)`,
         opacity,
       }}
     >
-     {/* Gradient de fond - تم تعديله ليصبح شفافاً ويبرز الصورة */}
       <div
         style={{
-          background: 'linear-gradient(to top, rgba(28,15,0,0.5) 0%, rgba(28,15,0,0.1) 100%)',
-          padding: '60px 40px 120px', // زيادة الـ 120px هنا ترفع النص للأعلى ليبتعد عن الحافة
+          background: 'rgba(28,15,0,0.85)', // لون شبه شفاف ليعطي فخامة
+          padding: '50px 30px',
+          borderRadius: 30, // زوايا دائرية
           display: 'flex',
           flexDirection: 'column',
           gap: 16,
           alignItems: 'center',
+          boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
         }}
       >
         {/* Texte CTA */}
