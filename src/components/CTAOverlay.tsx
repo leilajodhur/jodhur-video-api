@@ -67,10 +67,10 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
   });
 
   return (
-    <div
+   <div
       style={{
         position: 'absolute',
-        top: '25%', // هذا سيجعلها تظهر في الوسط تقريباً بدلاً من الأسفل
+        bottom: 100, // هذه القيمة الممتازة: تجعله في الأسفل مع مسافة تنفس 100 بيكسل
         left: 40,
         right: 40,
         transform: `translateY(${translateY}px)`,
@@ -79,9 +79,9 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
     >
       <div
         style={{
-          background: 'rgba(28,15,0,0.85)', // لون شبه شفاف ليعطي فخامة
-          padding: '50px 30px',
-          borderRadius: 30, // زوايا دائرية
+          background: 'rgba(28,15,0,0.85)', 
+          padding: '40px 30px', // قللنا الحجم قليلاً ليكون أنيقاً
+          borderRadius: 24,
           display: 'flex',
           flexDirection: 'column',
           gap: 16,
