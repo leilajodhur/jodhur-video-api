@@ -1,34 +1,35 @@
 import React from 'react';
 import { AbsoluteFill, Sequence, useCurrentFrame, useVideoConfig, interpolate, spring, Img } from 'remotion';
-import { COLORS, GRADIENTS } from '../constants/colors';
+import { COLORS } from '../constants/colors';
 import { FONTS, FONT_SIZES, FONT_WEIGHTS } from '../constants/fonts';
 import { TikTokCaption } from '../components/TikTokCaption';
 import { CTAOverlay, BrandWatermark } from '../components/CTAOverlay';
 import { HookText } from '../components/HookText';
 import type { T3ProduitRegionProps } from '../types';
 
-// أيقونة احترافية بدلاً من النص
 const CheckIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={COLORS.primary} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="20 6 9 17 4 12"></polyline>
   </svg>
 );
 
-const SceneGeoHook: React.FC<{ hookFr: string; hookDarija: string; region: string; regionImage?: string; }> = ({ hookFr, hookDarija, region, regionImage }) => {
+const SceneGeoHook: React.FC<{ hookFr: string; hookDarija: string; bgImage?: string; }> = ({ hookFr, hookDarija, bgImage }) => {
+  const frame = useCurrentFrame();
+  const zoom = interpolate(frame, [0, 90], [1, 1.05], { extrapolateRight: 'clamp' });
   return (
     <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
-      {regionImage && <Img src={regionImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
-      <AbsoluteFill style={{ background: `rgba(28,15,0,0.4)` }} /> {/* تم تخفيف السواد هنا */}
+      {bgImage && <Img src={bgImage} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${zoom})` }} />}
+      <AbsoluteFill style={{ background: `rgba(28,15,0,0.5)` }} />
       <HookText hookFr={hookFr} hookDarija={hookDarija} variant="overlay" bgColor="transparent" textColor={COLORS.white} accentColor={COLORS.gold} />
     </AbsoluteFill>
   );
 };
 
-const SceneRegionalJourney: React.FC<{ region: string; funFacts: string[]; regionImage?: string; productImage: string; }> = ({ region, funFacts, regionImage, productImage }) => {
+const SceneRegionalJourney: React.FC<{ region: string; funFacts: string[]; bgImage?: string; productImage: string; }> = ({ region, funFacts, bgImage, productImage }) => {
   return (
     <AbsoluteFill style={{ background: COLORS.parchment }}>
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '55%' }}>
-        <Img src={regionImage || productImage} style={{ width: '100%', height: '120%', objectFit: 'cover' }} />
+        <Img src={bgImage || productImage} style={{ width: '100%', height: '120%', objectFit: 'cover' }} />
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '60%', background: `linear-gradient(to top, ${COLORS.parchment} 0%, transparent 100%)` }} />
       </div>
       <div style={{ position: 'absolute', top: '48%', left: 0, right: 0, padding: '0 48px' }}>
@@ -46,12 +47,11 @@ const SceneRegionalJourney: React.FC<{ region: string; funFacts: string[]; regio
   );
 };
 
-const SceneExtraction: React.FC<{ extractionSteps: { label: string; durationSec: number }[]; extractionImage?: string; productImage: string; }> = ({ extractionSteps, extractionImage, productImage }) => {
+const SceneExtraction: React.FC<{ extractionSteps: { label: string; durationSec: number }[]; bgImage?: string; productImage: string; }> = ({ extractionSteps, bgImage, productImage }) => {
   return (
     <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
-      <Img src={extractionImage || productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }} />
-      {/* تم تقليل الحجب من 0.92 إلى 0.5 لتظهر صورة الاستخراج بوضوح */}
-      <AbsoluteFill style={{ background: 'linear-gradient(160deg, rgba(28,15,0,0.5) 0%, rgba(44,60,20,0.4) 100%)' }} />
+      <Img src={bgImage || productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }} />
+      <AbsoluteFill style={{ background: 'linear-gradient(160deg, rgba(28,15,0,0.6) 0%, rgba(44,60,20,0.5) 100%)' }} />
       <div style={{ position: 'absolute', top: 120, left: 0, right: 0 }}><span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.subtitle, color: COLORS.gold, textAlign: 'center', display: 'block' }}>PROCESSUS NATUREL</span></div>
       <div style={{ position: 'absolute', top: '35%', left: 40, right: 40, display: 'flex', flexDirection: 'column', gap: 24 }}>
         {extractionSteps.slice(0, 2).map((step, i) => (
@@ -68,19 +68,18 @@ export const T3_ProduitRegion: React.FC<T3ProduitRegionProps> = (props) => {
   return (
     <AbsoluteFill>
       <BrandWatermark brandName={props.brandName} />
-      <Sequence from={0} durationInFrames={90}><SceneGeoHook hookFr={props.hookFr} hookDarija={props.hookDarija} region={props.region!} regionImage={props.regionImage} /></Sequence>
-      <Sequence from={90} durationInFrames={210}><SceneRegionalJourney region={props.region!} funFacts={props.funFacts} regionImage={props.regionImage} productImage={props.productImage} /></Sequence>
-      <Sequence from={300} durationInFrames={210}><SceneExtraction extractionSteps={props.extractionSteps} extractionImage={props.extractionImage} productImage={props.productImage} /></Sequence>
+      <Sequence from={0} durationInFrames={90}><SceneGeoHook hookFr={props.hookFr} hookDarija={props.hookDarija} bgImage={props.regionBgImage} /></Sequence>
+      <Sequence from={90} durationInFrames={210}><SceneRegionalJourney region={props.region!} funFacts={props.funFacts} bgImage={props.regionBgImage} productImage={props.productImage} /></Sequence>
+      <Sequence from={300} durationInFrames={210}><SceneExtraction extractionSteps={props.extractionSteps} bgImage={props.extractionBgImage} productImage={props.productImage} /></Sequence>
       <Sequence from={510} durationInFrames={90}>
-        {/* خاتمة سينمائية بدلاً من السواد */}
         <AbsoluteFill>
-          <Img src={props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(15px)', transform: 'scale(1.1)' }} />
-          <AbsoluteFill style={{ background: 'rgba(28,15,0,0.5)' }} />
+          <Img src={props.ctaBgImage || props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(15px)', transform: 'scale(1.1)' }} />
+          <AbsoluteFill style={{ background: 'rgba(28,15,0,0.6)' }} />
         </AbsoluteFill>
         <CTAOverlay ctaText={props.cta} whatsappNumber={props.whatsappNumber} websiteUrl={props.websiteUrl} brandName={props.brandName} startFrame={0} variant="full" />
       </Sequence>
       <Sequence from={90} durationInFrames={210}>
-        <TikTokCaption text={props.hookDarija} startFrame={0} rtl={true} animationMode="slide-up" bgColor={COLORS.atlas} bottom={60} />
+        <TikTokCaption text={props.hookDarija} startFrame={0} rtl={true} animationMode="slide-up" bgColor={COLORS.green} bottom={60} />
       </Sequence>
     </AbsoluteFill>
   );
