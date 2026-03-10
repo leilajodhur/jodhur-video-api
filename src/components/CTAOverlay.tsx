@@ -28,7 +28,6 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-// Flèche pointer
 // أيقونة الرابط (SVG احترافي بدلاً من الإيموجي)
 const LinkIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -93,6 +92,33 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
           boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
         }}
       >
+        
+        {/* JODHUR Signature - اللمسة الفخمة في المنتصف */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 10 }}>
+          <span style={{ 
+            fontFamily: FONTS.display, 
+            fontSize: 32, 
+            fontWeight: FONT_WEIGHTS.black, 
+            color: COLORS.gold, 
+            letterSpacing: 6, 
+            textTransform: 'uppercase',
+            textShadow: '0 4px 10px rgba(0,0,0,0.5)'
+          }}>
+            {brandName}
+          </span>
+          <span style={{ 
+            fontFamily: FONTS.body, 
+            fontSize: 16, 
+            color: COLORS.cream, 
+            letterSpacing: 2, 
+            opacity: 0.8, 
+            marginTop: 4 
+          }}>
+            Soin Authentique
+          </span>
+          <div style={{ width: 60, height: 2, background: COLORS.gold, margin: '16px auto 8px', opacity: 0.5 }} />
+        </div>
+
         {/* Texte CTA */}
         <div
           style={{
@@ -178,7 +204,7 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
           )}
         </div>
 
-        {/* Brand watermark */}
+        {/* Brand watermark (Original) */}
         <span
           style={{
             fontFamily: FONTS.display,
