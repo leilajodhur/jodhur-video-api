@@ -2,87 +2,84 @@ import React from 'react';
 import { AbsoluteFill, Sequence, useCurrentFrame, useVideoConfig, interpolate, spring, Img } from 'remotion';
 import { COLORS, GRADIENTS } from '../constants/colors';
 import { FONTS, FONT_SIZES, FONT_WEIGHTS } from '../constants/fonts';
-import { TikTokCaption } from '../components/TikTokCaption';
 import { CTAOverlay, BrandWatermark } from '../components/CTAOverlay';
-import { HookText } from '../components/HookText';
-import type { T3ProduitRegionProps } from '../types';
+import type { T5CarouselProps } from '../types';
 
-// أيقونة احترافية بدلاً من النص
-const CheckIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={COLORS.primary} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="20 6 9 17 4 12"></polyline>
-  </svg>
+const FRAMES_PER_SLIDE = 150; // 5 ثواني لكل شريحة
+
+const SlideDots: React.FC<{ total: number; current: number }> = ({ total, current }) => (
+  <div style={{ position: 'absolute', bottom: 44, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 12 }}>
+    {Array.from({ length: total }).map((_, i) => (
+      <div key={i} style={{ width: i === current ? 40 : 12, height: 12, borderRadius: 6, background: i === current ? COLORS.gold : 'rgba(255,255,255,0.3)', transition: 'all 0.3s' }} />
+    ))}
+  </div>
 );
 
-const SceneGeoHook: React.FC<{ hookFr: string; hookDarija: string; region: string; regionImage?: string; }> = ({ hookFr, hookDarija, region, regionImage }) => {
-  return (
-    <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
-      {regionImage && <Img src={regionImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
-      <AbsoluteFill style={{ background: `rgba(28,15,0,0.4)` }} /> {/* تم تخفيف السواد هنا */}
-      <HookText hookFr={hookFr} hookDarija={hookDarija} variant="overlay" bgColor="transparent" textColor={COLORS.white} accentColor={COLORS.gold} />
-    </AbsoluteFill>
-  );
-};
+const Slide: React.FC<{ slide: any; slideIndex: number; totalSlides: number; carouselTitle: string; brandName: string; cta: string; isLast: boolean; whatsappNumber?: string; websiteUrl?: string; }> = ({ slide, slideIndex, totalSlides, carouselTitle, brandName, cta, isLast, whatsappNumber, websiteUrl }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const enterX = spring({ fps, frame, config: { damping: 22, stiffness: 160 }, from: 1080, to: 0 });
 
-const SceneRegionalJourney: React.FC<{ region: string; funFacts: string[]; regionImage?: string; productImage: string; }> = ({ region, funFacts, regionImage, productImage }) => {
   return (
-    <AbsoluteFill style={{ background: COLORS.parchment }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '55%' }}>
-        <Img src={regionImage || productImage} style={{ width: '100%', height: '120%', objectFit: 'cover' }} />
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '60%', background: `linear-gradient(to top, ${COLORS.parchment} 0%, transparent 100%)` }} />
-      </div>
-      <div style={{ position: 'absolute', top: '48%', left: 0, right: 0, padding: '0 48px' }}>
-        <span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.subtitle, fontWeight: FONT_WEIGHTS.black, marginBottom: 20, display:'block', color: COLORS.primaryDark }}>{region}</span>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {funFacts.slice(0, 2).map((fact, i) => (
-             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <CheckIcon />
-                <span style={{ fontFamily: FONTS.body, fontSize: FONT_SIZES.body, fontWeight: FONT_WEIGHTS.semibold, color: COLORS.charcoal }}>{fact}</span>
+    <AbsoluteFill style={{ background: slide.bgColor || COLORS.backgroundDark, transform: `translateX(${enterX}px)` }}>
+      {/* خلفية فخمة ومغبشة دائماً */}
+      {slide.image && (
+        <AbsoluteFill>
+          <Img src={slide.image} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(30px)', opacity: 0.4, transform: 'scale(1.1)' }} />
+        </AbsoluteFill>
+      )}
+      <AbsoluteFill style={{ padding: '160px 52px 120px 52px', background: 'rgba(0,0,0,0.2)' }}>
+        <SlideDots total={totalSlides} current={slideIndex} />
+        
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+          {slideIndex === 0 && (
+             <>
+               <span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.hook - 20, fontWeight: FONT_WEIGHTS.black, color: COLORS.white, lineHeight: 1.2 }}>{carouselTitle}</span>
+               <div style={{ width: 100, height: 4, background: COLORS.gold, borderRadius: 2 }} />
+               <span style={{ fontFamily: FONTS.arabic, fontSize: FONT_SIZES.subtitle, color: COLORS.sand, direction: 'rtl', lineHeight: 1.4 }}>{slide.subtitle}</span>
+             </>
+          )}
+          {slideIndex > 0 && !isLast && (
+             <>
+               <span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.title, fontWeight: FONT_WEIGHTS.black, color: COLORS.gold }}>{slide.title}</span>
+               <div style={{ background: 'rgba(255,255,255,0.1)', padding: '32px', borderRadius: 24, backdropFilter: 'blur(10px)', border: '1px solid rgba(255,255,255,0.15)' }}>
+                 <span style={{ fontFamily: FONTS.body, fontSize: FONT_SIZES.body, color: COLORS.white, lineHeight: 1.5 }}>{slide.body}</span>
+               </div>
+               {slide.image && <Img src={slide.image} style={{ width: '100%', height: 350, objectFit: 'cover', borderRadius: 24, marginTop: 16, boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }} />}
+             </>
+          )}
+          {isLast && (
+             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', marginTop: -40 }}>
+               {slide.image && <Img src={slide.image} style={{ width: 300, height: 300, objectFit: 'contain', borderRadius: 24, marginBottom: 40 }} />}
+               <span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.title, color: COLORS.gold, textAlign: 'center', fontWeight: 'black' }}>{slide.title}</span>
+               <span style={{ fontFamily: FONTS.body, fontSize: FONT_SIZES.body, color: COLORS.white, textAlign: 'center', marginTop: 16 }}>{slide.body}</span>
              </div>
-          ))}
+          )}
         </div>
-      </div>
+      </AbsoluteFill>
+
+      {isLast && <CTAOverlay ctaText={cta} whatsappNumber={whatsappNumber} websiteUrl={websiteUrl} brandName={brandName} startFrame={30} variant="full" />}
     </AbsoluteFill>
   );
 };
 
-const SceneExtraction: React.FC<{ extractionSteps: { label: string; durationSec: number }[]; extractionImage?: string; productImage: string; }> = ({ extractionSteps, extractionImage, productImage }) => {
-  return (
-    <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
-      <Img src={extractionImage || productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }} />
-      {/* تم تقليل الحجب من 0.92 إلى 0.5 لتظهر صورة الاستخراج بوضوح */}
-      <AbsoluteFill style={{ background: 'linear-gradient(160deg, rgba(28,15,0,0.5) 0%, rgba(44,60,20,0.4) 100%)' }} />
-      <div style={{ position: 'absolute', top: 120, left: 0, right: 0 }}><span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.subtitle, color: COLORS.gold, textAlign: 'center', display: 'block' }}>PROCESSUS NATUREL</span></div>
-      <div style={{ position: 'absolute', top: '35%', left: 40, right: 40, display: 'flex', flexDirection: 'column', gap: 24 }}>
-        {extractionSteps.slice(0, 2).map((step, i) => (
-          <div key={i} style={{ background: 'rgba(255,255,255,0.1)', padding: '16px 24px', borderRadius: 16, backdropFilter: 'blur(10px)', borderLeft: `4px solid ${COLORS.gold}` }}>
-             <span style={{ fontFamily: FONTS.body, fontSize: FONT_SIZES.body, color: COLORS.white, fontWeight: 'bold' }}>{i+1}. {step.label}</span>
-          </div>
-        ))}
-      </div>
-    </AbsoluteFill>
-  );
-};
+export const T5_CarouselAnime: React.FC<T5CarouselProps> = (props) => {
+  // استخدام 4 شرائح دائماً. إذا تم إرسال أقل، سيقوم النظام بتعويضها تلقائياً لتجنب الشاشة السوداء.
+  const safeSlides = props.slides || [];
+  while (safeSlides.length < 4) {
+      safeSlides.push({ title: "JODHUR", body: "Beauté authentique", image: props.slides?.[0]?.image || "" });
+  }
+  const fastSlides = safeSlides.slice(0, 4); 
 
-export const T3_ProduitRegion: React.FC<T3ProduitRegionProps> = (props) => {
   return (
     <AbsoluteFill>
       <BrandWatermark brandName={props.brandName} />
-      <Sequence from={0} durationInFrames={90}><SceneGeoHook hookFr={props.hookFr} hookDarija={props.hookDarija} region={props.region!} regionImage={props.regionImage} /></Sequence>
-      <Sequence from={90} durationInFrames={210}><SceneRegionalJourney region={props.region!} funFacts={props.funFacts} regionImage={props.regionImage} productImage={props.productImage} /></Sequence>
-      <Sequence from={300} durationInFrames={210}><SceneExtraction extractionSteps={props.extractionSteps} extractionImage={props.extractionImage} productImage={props.productImage} /></Sequence>
-      <Sequence from={510} durationInFrames={90}>
-        {/* خاتمة سينمائية بدلاً من السواد */}
-        <AbsoluteFill>
-          <Img src={props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(15px)', transform: 'scale(1.1)' }} />
-          <AbsoluteFill style={{ background: 'rgba(28,15,0,0.5)' }} />
-        </AbsoluteFill>
-        <CTAOverlay ctaText={props.cta} whatsappNumber={props.whatsappNumber} websiteUrl={props.websiteUrl} brandName={props.brandName} startFrame={0} variant="full" />
-      </Sequence>
-      <Sequence from={90} durationInFrames={210}>
-        <TikTokCaption text={props.hookDarija} startFrame={0} rtl={true} animationMode="slide-up" bgColor={COLORS.atlas} bottom={60} />
-      </Sequence>
+      {fastSlides.map((slide, index) => (
+        <Sequence key={index} from={index * FRAMES_PER_SLIDE} durationInFrames={FRAMES_PER_SLIDE}>
+          <Slide slide={slide} slideIndex={index} totalSlides={fastSlides.length} carouselTitle={props.carouselTitle!} whatsappNumber={props.whatsappNumber} websiteUrl={props.websiteUrl} brandName={props.brandName} cta={props.cta} isLast={index === fastSlides.length - 1} />
+        </Sequence>
+      ))}
     </AbsoluteFill>
   );
 };
-export default T3_ProduitRegion;
+export default T5_CarouselAnime;
