@@ -29,8 +29,12 @@ const WhatsAppIcon = () => (
 );
 
 // Flèche pointer
-const ArrowIcon = () => (
-  <span style={{ fontSize: 36 }}>👆</span>
+// أيقونة الرابط (SVG احترافي بدلاً من الإيموجي)
+const LinkIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+  </svg>
 );
 
 export const CTAOverlay: React.FC<CTAOverlayProps> = ({
@@ -159,7 +163,7 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
                 boxShadow: `0 6px 20px rgba(196,118,58,0.5)`,
               }}
             >
-              <ArrowIcon />
+              <LinkIcon />
               <span
                 style={{
                   fontFamily: FONTS.body,
