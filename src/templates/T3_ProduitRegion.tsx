@@ -26,13 +26,26 @@ const SceneGeoHook: React.FC<{ hookFr: string; hookDarija: string; bgImage?: str
 };
 
 const SceneRegionalJourney: React.FC<{ region: string; funFacts: string[]; bgImage?: string; productImage: string; }> = ({ region, funFacts, bgImage, productImage }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  
+  // 1. حركة رفع الصورة بانسيابية من 100% إلى 55% لتجنب القطع الحاد
+  const imageReveal = spring({ fps, frame, config: { damping: 18, stiffness: 100 }, from: 100, to: 55 });
+  
+  // 2. ظهور النص بتدرج ناعم بعد أن ترتفع الصورة
+  const textOpacity = interpolate(frame, [15, 30], [0, 1], { extrapolateRight: 'clamp' });
+  const textY = interpolate(frame, [15, 30], [20, 0], { extrapolateRight: 'clamp' });
+
   return (
     <AbsoluteFill style={{ background: COLORS.parchment }}>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '55%' }}>
-        <Img src={bgImage || productImage} style={{ width: '100%', height: '120%', objectFit: 'cover' }} />
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '60%', background: `linear-gradient(to top, ${COLORS.parchment} 0%, transparent 100%)` }} />
+      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: `${imageReveal}%`, overflow: 'hidden' }}>
+        {/* تم تعديل الارتفاع إلى 100% لكي لا تتشوه الصورة */}
+        <Img src={bgImage || productImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '40%', background: `linear-gradient(to top, ${COLORS.parchment} 0%, transparent 100%)` }} />
       </div>
-      <div style={{ position: 'absolute', top: '48%', left: 0, right: 0, padding: '0 48px' }}>
+      
+      {/* تم إنزال النص إلى 58% بدلاً من 48% لكي لا يتداخل أبداً مع الصورة */}
+      <div style={{ position: 'absolute', top: '58%', left: 0, right: 0, padding: '0 48px', opacity: textOpacity, transform: `translateY(${textY}px)` }}>
         <span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.subtitle, fontWeight: FONT_WEIGHTS.black, marginBottom: 20, display:'block', color: COLORS.primaryDark }}>{region}</span>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {funFacts.slice(0, 2).map((fact, i) => (
@@ -48,8 +61,12 @@ const SceneRegionalJourney: React.FC<{ region: string; funFacts: string[]; bgIma
 };
 
 const SceneExtraction: React.FC<{ extractionSteps: { label: string; durationSec: number }[]; bgImage?: string; productImage: string; }> = ({ extractionSteps, bgImage, productImage }) => {
+  const frame = useCurrentFrame();
+  // إضافة fade بسيط لتنعيم الدخول لمشهد الاستخراج
+  const fade = interpolate(frame, [0, 15], [0, 1], { extrapolateRight: 'clamp' });
+
   return (
-    <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
+    <AbsoluteFill style={{ background: COLORS.backgroundDark, opacity: fade }}>
       <Img src={bgImage || productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.6 }} />
       <AbsoluteFill style={{ background: 'linear-gradient(160deg, rgba(28,15,0,0.6) 0%, rgba(44,60,20,0.5) 100%)' }} />
       <div style={{ position: 'absolute', top: 120, left: 0, right: 0 }}><span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.subtitle, color: COLORS.gold, textAlign: 'center', display: 'block' }}>PROCESSUS NATUREL</span></div>
