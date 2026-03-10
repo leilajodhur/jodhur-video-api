@@ -77,11 +77,11 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
         opacity,
       }}
     >
-      {/* Gradient de fond */}
+     {/* Gradient de fond - تم تعديله ليصبح شفافاً ويبرز الصورة */}
       <div
         style={{
-          background: 'linear-gradient(to top, rgba(28,15,0,0.95) 0%, rgba(28,15,0,0.7) 60%, transparent 100%)',
-          padding: '60px 40px 48px',
+          background: 'linear-gradient(to top, rgba(28,15,0,0.5) 0%, rgba(28,15,0,0.1) 100%)',
+          padding: '60px 40px 120px', // زيادة الـ 120px هنا ترفع النص للأعلى ليبتعد عن الحافة
           display: 'flex',
           flexDirection: 'column',
           gap: 16,
