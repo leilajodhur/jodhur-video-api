@@ -1,5 +1,5 @@
 // ============================================================
-// types-universal.ts — Props universel pour full automation:
+// types-universal.ts — Props universel pour full automation (Pro Version):
 // ============================================================
 
 export interface ContentRow {
@@ -45,74 +45,98 @@ export const FORMAT_TO_TEMPLATE: Record<string, TemplateId> = {
 };
 
 export interface UniversalVideoProps {
-  brandName:          string; 
-  brandLogo?:         string; 
-  primaryColor?:      string; 
-  accentColor?:       string; 
+  // ── الأساسيات ──
+  brandName: string; 
+  brandLogo?: string; 
+  productName: string; 
+  productImage: string; 
+  
+  // ── النصوص ──
+  hookFr: string; 
+  hookDarija: string; 
+  scriptAngle?: string; 
+  storytellingEmotion?: string; 
+  cta: string; 
+  hashtags?: string; 
 
-  semaine:            string; 
-  phase:              string; 
-  pilier:             string; 
-  datePublication:    string; 
-  plateforme:         string; 
+  // ── التحكم المنفصل في الصور والخلفيات ──
+  // القالب 1
+  hookBgImage?: string;       
+  productBgImage?: string;    
+  priceBgImage?: string;      
+  ctaBgImage?: string;        
+  
+  // القالب 2
+  atmosphereBgImage?: string;
+  storyBgImage?: string;
+  heritageBgImage?: string;
 
-  hookFr:             string; 
-  hookDarija:         string; 
-  productName:        string; 
-  scriptAngle:        string; 
-  storytellingEmotion:string; 
-  cta:                string; 
-  hashtags:           string; 
+  // القالب 3
+  regionBgImage?: string;
+  extractionBgImage?: string;
+  
+  // القالب 4
+  problemBgImage?: string;
+  tutorialBgImage?: string;
+  resultsBgImage?: string;
 
-  productImage:       string; 
-  backgroundImage?:   string; 
-  image2?:            string; 
-  image3?:            string; 
+  // دعم القديم (لكي لا تتعطل الأكواد القديمة إن وجدت)
+  backgroundImage?: string;
+  image2?: string;
+  image3?: string;
 
-  whatsappNumber?:    string; 
-  websiteUrl?:        string; 
-  ctaVariant?:        'whatsapp' | 'link-bio' | 'website';
+  // ── التحكم في الألوان من n8n ──
+  primaryColor?: string;  
+  accentColor?: string;   
+  customOverlayOpacity?: number;
 
-  originalPriceMAD?:  number; 
-  promoPriceMAD?:     number; 
-  promoCode?:         string; 
-  urgencyText?:       string; 
-  benefits?:          string[]; // MAX 2
-  region?:            string; 
-  heritageYears?:     string; 
-
-  problemStatement?:  string; 
-  steps?:             TutoStep[]; // MAX 2-3
-  resultsText?:       string; 
-  tipBonus?:          string; 
-
-  slides?:            SlideData[]; // MAX 4
-  carouselTitle?:     string; 
-  saveText?:          string; 
+  // ── متغيرات مخصصة للقوالب ──
+  whatsappNumber?: string; 
+  websiteUrl?: string; 
+  ctaVariant?: 'whatsapp' | 'link-bio' | 'website';
+  
+  originalPriceMAD?: number; 
+  promoPriceMAD?: number; 
+  promoCode?: string; 
+  urgencyText?: string; 
+  benefits?: string[]; 
+  
+  region?: string; 
+  heritageYears?: string; 
+  
+  problemStatement?: string; 
+  steps?: TutoStep[]; 
+  resultsText?: string; 
+  tipBonus?: string; 
+  
+  slides?: SlideData[]; 
+  carouselTitle?: string; 
+  saveText?: string; 
 }
 
 export interface TutoStep {
-  number:      number;
-  title:       string;
-  desc:        string;
-  image?:      string;
-  emoji?:      string;
+  number: number;
+  title: string;
+  desc: string;
+  image?: string;
+  emoji?: string;
   durationSec: number; 
 }
 
 export interface SlideData {
-  title:      string;
-  subtitle?:  string;
-  body:       string;
-  image?:     string;
-  bgColor?:   string;
+  title: string;
+  subtitle?: string;
+  body: string;
+  image?: string;
+  bgColor?: string;
   textColor?: string;
   highlight?: string;
-  emoji?:     string;
+  emoji?: string;
 }
 
 export type T1PromoFlashProps = UniversalVideoProps;
 export type T2HeritageStoryProps = UniversalVideoProps;
+// تم دمج خصائص T3 بدقة لكي لا تنقص أي معلومة مثل originFact
 export type T3ProduitRegionProps = UniversalVideoProps & { originFact: string; funFacts: string[]; extractionSteps: { label: string; durationSec: number }[]; extractionImage?: string; ingredients?: string; regionImage?: string; };
 export type T4TutorialProps = UniversalVideoProps;
 export type T5CarouselProps = UniversalVideoProps;
