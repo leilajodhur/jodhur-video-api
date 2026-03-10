@@ -8,12 +8,26 @@ import { CTAOverlay, BrandWatermark } from '../components/CTAOverlay';
 import { HookText } from '../components/HookText';
 import type { T1PromoFlashProps } from '../types';
 
-const SceneHook: React.FC<Pick<T1PromoFlashProps, 'hookFr' | 'hookDarija'>> = ({ hookFr, hookDarija }) => {
+// أيقونة صح احترافية
+const CheckIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="20 6 9 17 4 12"></polyline>
+  </svg>
+);
+
+// تم إضافة backgroundImage للهوك ليكون احترافياً
+const SceneHook: React.FC<{ hookFr: string; hookDarija: string; backgroundImage?: string }> = ({ hookFr, hookDarija, backgroundImage }) => {
   const frame = useCurrentFrame();
   const bgOpacity = interpolate(frame, [0, 10], [0, 1], { extrapolateRight: 'clamp' });
   return (
     <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
-      <AbsoluteFill style={{ background: GRADIENTS.hammam, opacity: bgOpacity }} />
+      {/* عرض الصورة في خلفية الهوك مع تأثير غامق */}
+      {backgroundImage && (
+        <AbsoluteFill>
+          <Img src={backgroundImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5, transform: 'scale(1.05)' }} />
+        </AbsoluteFill>
+      )}
+      <AbsoluteFill style={{ background: GRADIENTS.hammam, opacity: bgOpacity * 0.8 }} />
       <HookText hookFr={hookFr} hookDarija={hookDarija} variant="punch" bgColor="transparent" textColor={COLORS.white} accentColor={COLORS.gold} />
     </AbsoluteFill>
   );
@@ -25,7 +39,6 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; benefi
   const imageScale = spring({ fps, frame, config: { damping: 14, stiffness: 100 }, from: 1.08, to: 1 });
   return (
     <AbsoluteFill style={{ background: COLORS.cream }}>
-      {/* تأثير إضاءة (Glow) خلف المنتج */}
       <AbsoluteFill style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
          <div style={{ width: '80%', height: '50%', background: COLORS.goldLight, filter: 'blur(80px)', opacity: 0.3, borderRadius: '50%' }} />
       </AbsoluteFill>
@@ -33,6 +46,8 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; benefi
         <Img src={productImage} style={{ width: '100%', height: '70%', objectFit: 'cover', transform: `scale(${imageScale})` }} />
       </AbsoluteFill>
       <AbsoluteFill style={{ background: `linear-gradient(to top, ${COLORS.cream} 35%, transparent 70%)` }} />
+      
+      {/* المسافات تم تعديلها لتكون متناسقة وجدية */}
       <div style={{ position: 'absolute', top: '60%', left: 40, right: 40 }}>
         <span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.title, fontWeight: FONT_WEIGHTS.black, color: COLORS.primaryDark, display: 'block', textAlign: 'center' }}>{productName}</span>
       </div>
@@ -42,7 +57,10 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; benefi
           const itemOpacity = interpolate(itemFrame, [0, 10], [0, 1], { extrapolateRight: 'clamp' });
           return (
             <div key={i} style={{ opacity: itemOpacity, display: 'flex', alignItems: 'center', gap: 16 }}>
-              <div style={{ width: 36, height: 36, borderRadius: '50%', background: COLORS.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ fontSize: 20, color: COLORS.white }}>✓</span></div>
+              {/* استخدام أيقونة الـ SVG الحقيقية هنا */}
+              <div style={{ width: 36, height: 36, borderRadius: '50%', background: COLORS.primary, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <CheckIcon />
+              </div>
               <span style={{ fontFamily: FONTS.body, fontSize: FONT_SIZES.body, fontWeight: FONT_WEIGHTS.semibold, color: COLORS.backgroundDark }}>{b}</span>
             </div>
           );
@@ -55,9 +73,7 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; benefi
 const ScenePrice: React.FC<{ originalPriceMAD: number; promoPriceMAD: number; promoCode?: string; urgencyText: string; backgroundImage?: string; }> = ({ originalPriceMAD, promoPriceMAD, promoCode, urgencyText, backgroundImage }) => {
   return (
     <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
-      {/* الصورة أصبحت ساطعة أكثر */}
       {backgroundImage && <AbsoluteFill><Img src={backgroundImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }} /></AbsoluteFill>}
-      {/* التدرج اللوني أصبح أخف ليبرز الصورة */}
       <AbsoluteFill style={{ background: 'linear-gradient(160deg, rgba(28,15,0,0.4) 0%, rgba(196,118,58,0.3) 100%)' }} />
       <UrgencyBadge text={urgencyText} startFrame={0} top={100} right={40} />
       <div style={{ position: 'absolute', top: 120, left: 40 }}>
@@ -76,7 +92,8 @@ export const T1_PromoFlash: React.FC<T1PromoFlashProps> = (props) => {
     <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
       <BrandWatermark brandName={props.brandName} />
       <Sequence from={0} durationInFrames={60}>
-        <SceneHook hookFr={props.hookFr} hookDarija={props.hookDarija} />
+        {/* نمرر صورة الخلفية للهوك لكي لا يظهر باهتاً */}
+        <SceneHook hookFr={props.hookFr} hookDarija={props.hookDarija} backgroundImage={props.backgroundImage} />
       </Sequence>
       <Sequence from={60} durationInFrames={150}>
         <SceneProduct productName={props.productName} productImage={props.productImage} benefits={props.benefits || []} />
@@ -85,7 +102,6 @@ export const T1_PromoFlash: React.FC<T1PromoFlashProps> = (props) => {
         <ScenePrice originalPriceMAD={props.originalPriceMAD!} promoPriceMAD={props.promoPriceMAD!} promoCode={props.promoCode} urgencyText={props.urgencyText!} backgroundImage={props.backgroundImage} />
       </Sequence>
       <Sequence from={360} durationInFrames={90}>
-        {/* الخاتمة السينمائية الجديدة - صورة مغبشة خلف الزر */}
         <AbsoluteFill>
           <Img src={props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(15px)', transform: 'scale(1.1)' }} />
           <AbsoluteFill style={{ background: 'rgba(28,15,0,0.5)' }} />
