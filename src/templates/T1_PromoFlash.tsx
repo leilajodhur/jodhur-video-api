@@ -14,20 +14,20 @@ const CheckIcon = () => (
   </svg>
 );
 
-const SceneHook: React.FC<{ hookFr: string; hookDarija: string; bgImage?: string; overlayOpacity?: number }> = ({ hookFr, hookDarija, bgImage, overlayOpacity = 0.5 }) => {
+const SceneHook: React.FC<{ hookFr: string; hookDarija: string; bgImage?: string; overlayOpacity?: number }> = ({ hookFr, hookDarija, bgImage, overlayOpacity = 0.3 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  // حركة زووم سينمائية بطيئة للصورة
   const slowZoom = interpolate(frame, [0, fps * 3], [1.1, 1], { extrapolateRight: 'clamp' });
   
   return (
-    <AbsoluteFill style={{ background: COLORS.backgroundDark, overflow: 'hidden' }}>
+    <AbsoluteFill style={{ background: '#000', overflow: 'hidden' }}>
+      {/* الصورة أصبحت واضحة جداً */}
       {bgImage && (
         <AbsoluteFill>
-          <Img src={bgImage} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${slowZoom})` }} />
+          <Img src={bgImage} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${slowZoom})`, opacity: 1 }} />
         </AbsoluteFill>
       )}
-      <AbsoluteFill style={{ background: GRADIENTS.hammam, opacity: overlayOpacity }} />
+      <AbsoluteFill style={{ background: `linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%)`, opacity: overlayOpacity + 0.3 }} />
       <HookText hookFr={hookFr} hookDarija={hookDarija} variant="punch" bgColor="transparent" textColor={COLORS.white} accentColor={COLORS.gold} />
     </AbsoluteFill>
   );
@@ -40,21 +40,20 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; bgImag
   
   return (
     <AbsoluteFill style={{ background: COLORS.cream }}>
-      {/* خلفية المنتج: يمكن أن تكون صورة ملمس (Texture) أو تبقى كريمية */}
-      {bgImage && <AbsoluteFill><Img src={bgImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.2 }} /></AbsoluteFill>}
+      {bgImage && <AbsoluteFill><Img src={bgImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} /></AbsoluteFill>}
       
       <AbsoluteFill style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
          <div style={{ width: '80%', height: '50%', background: COLORS.goldLight, filter: 'blur(80px)', opacity: 0.4, borderRadius: '50%' }} />
       </AbsoluteFill>
       <AbsoluteFill>
-        <Img src={productImage} style={{ width: '100%', height: '70%', objectFit: 'cover', transform: `scale(${imageScale})` }} />
+        <Img src={productImage} style={{ width: '100%', height: '65%', objectFit: 'contain', transform: `scale(${imageScale})`, marginTop: 40 }} />
       </AbsoluteFill>
-      <AbsoluteFill style={{ background: `linear-gradient(to top, ${COLORS.cream} 35%, transparent 70%)` }} />
+      <AbsoluteFill style={{ background: `linear-gradient(to top, ${COLORS.cream} 40%, transparent 80%)` }} />
       
       <div style={{ position: 'absolute', top: '60%', left: 40, right: 40 }}>
         <span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.title, fontWeight: FONT_WEIGHTS.black, color: COLORS.primaryDark, display: 'block', textAlign: 'center' }}>{productName}</span>
       </div>
-      <div style={{ position: 'absolute', top: '74%', left: 48, right: 48, display: 'flex', flexDirection: 'column', gap: 14 }}>
+      <div style={{ position: 'absolute', top: '72%', left: 48, right: 48, display: 'flex', flexDirection: 'column', gap: 14 }}>
         {benefits?.slice(0, 2).map((b, i) => {
           const itemFrame = Math.max(0, frame - i * 12);
           const itemOpacity = interpolate(itemFrame, [0, 10], [0, 1], { extrapolateRight: 'clamp' });
@@ -63,7 +62,7 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; bgImag
               <div style={{ width: 36, height: 36, borderRadius: '50%', background: COLORS.primary, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 10px rgba(196,118,58,0.4)' }}>
                 <CheckIcon />
               </div>
-              <span style={{ fontFamily: FONTS.body, fontSize: FONT_SIZES.body, fontWeight: FONT_WEIGHTS.semibold, color: COLORS.backgroundDark }}>{b}</span>
+              <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: FONT_SIZES.body, fontWeight: FONT_WEIGHTS.semibold, color: COLORS.backgroundDark }}>{b}</span>
             </div>
           );
         })}
@@ -72,24 +71,36 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; bgImag
   );
 };
 
-const ScenePrice: React.FC<{ originalPriceMAD: number; promoPriceMAD: number; promoCode?: string; urgencyText: string; bgImage?: string; }> = ({ originalPriceMAD, promoPriceMAD, promoCode, urgencyText, bgImage }) => {
+// المشهد الجديد كلياً للسعر (يحتوي على المنتج الآن!)
+const ScenePrice: React.FC<{ originalPriceMAD: number; promoPriceMAD: number; promoCode?: string; urgencyText: string; bgImage?: string; productImage: string; productName: string; }> = ({ originalPriceMAD, promoPriceMAD, promoCode, urgencyText, bgImage, productImage, productName }) => {
   const frame = useCurrentFrame();
   const slowZoom = interpolate(frame, [0, 150], [1, 1.05], { extrapolateRight: 'clamp' });
+  const { fps } = useVideoConfig();
+  const pop = spring({ fps, frame: frame - 10, config: { damping: 12 }, from: 0.5, to: 1 });
 
   return (
-    <AbsoluteFill style={{ background: COLORS.backgroundDark, overflow: 'hidden' }}>
+    <AbsoluteFill style={{ background: '#000', overflow: 'hidden' }}>
       {bgImage && (
         <AbsoluteFill>
-           <Img src={bgImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85, transform: `scale(${slowZoom})` }} />
+           <Img src={bgImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.4, transform: `scale(${slowZoom})` }} />
         </AbsoluteFill>
       )}
-      <AbsoluteFill style={{ background: 'linear-gradient(160deg, rgba(28,15,0,0.5) 0%, rgba(196,118,58,0.3) 100%)' }} />
-      <UrgencyBadge text={urgencyText} startFrame={0} top={100} right={40} />
-      <div style={{ position: 'absolute', top: 120, left: 40 }}>
-        <span style={{ fontFamily: FONTS.display, fontSize: 56, fontWeight: FONT_WEIGHTS.black, color: COLORS.gold, textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>FLASH</span><br />
-        <span style={{ fontFamily: FONTS.body, fontSize: 40, fontWeight: FONT_WEIGHTS.bold, color: COLORS.sand, textShadow: '0 4px 12px rgba(0,0,0,0.5)' }}>PROMO</span>
+      <AbsoluteFill style={{ background: 'radial-gradient(circle, rgba(196,118,58,0.2) 0%, rgba(0,0,0,0.8) 100%)' }} />
+      
+      <UrgencyBadge text={urgencyText} startFrame={0} top={80} right={40} />
+      
+      <div style={{ position: 'absolute', top: 80, left: 40 }}>
+        <span style={{ fontFamily: FONTS.display, fontSize: 48, fontWeight: FONT_WEIGHTS.black, color: COLORS.gold }}>OFFRE</span><br />
+        <span style={{ fontFamily: FONTS.display, fontSize: 32, fontWeight: FONT_WEIGHTS.bold, color: COLORS.white }}>SPÉCIALE</span>
       </div>
-      <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      
+      {/* إضافة صورة واسم المنتج لكي لا يبدو المشهد فارغاً */}
+      <div style={{ position: 'absolute', top: '30%', left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `scale(${pop})` }}>
+         <Img src={productImage} style={{ width: 250, height: 250, objectFit: 'contain', filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.8))' }} />
+         <span style={{ fontFamily: FONTS.display, fontSize: 28, color: COLORS.white, marginTop: 16, fontWeight: 'bold' }}>{productName}</span>
+      </div>
+
+      <div style={{ position: 'absolute', bottom: 120, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <PriceTag priceMAD={promoPriceMAD} originalPriceMAD={originalPriceMAD} promoCode={promoCode} startFrame={0} size="large" />
       </div>
     </AbsoluteFill>
@@ -101,33 +112,30 @@ export const T1_PromoFlash: React.FC<T1PromoFlashProps> = (props) => {
     <AbsoluteFill style={{ background: COLORS.backgroundDark }}>
       <BrandWatermark brandName={props.brandName} />
       
-      {/* 1. مشهد الهوك بمتغيراته الخاصة */}
       <Sequence from={0} durationInFrames={60}>
         <SceneHook hookFr={props.hookFr} hookDarija={props.hookDarija} bgImage={props.hookBgImage} overlayOpacity={props.customOverlayOpacity} />
       </Sequence>
       
-      {/* 2. مشهد المنتج بمتغيراته الخاصة */}
       <Sequence from={60} durationInFrames={150}>
         <SceneProduct productName={props.productName} productImage={props.productImage} bgImage={props.productBgImage} benefits={props.benefits || []} />
       </Sequence>
       
-      {/* 3. مشهد السعر بمتغيراته الخاصة */}
       <Sequence from={210} durationInFrames={150}>
-        <ScenePrice originalPriceMAD={props.originalPriceMAD!} promoPriceMAD={props.promoPriceMAD!} promoCode={props.promoCode} urgencyText={props.urgencyText!} bgImage={props.priceBgImage} />
+        {/* نمرر صورة واسم المنتج لمشهد السعر */}
+        <ScenePrice originalPriceMAD={props.originalPriceMAD!} promoPriceMAD={props.promoPriceMAD!} promoCode={props.promoCode} urgencyText={props.urgencyText!} bgImage={props.priceBgImage} productImage={props.productImage} productName={props.productName} />
       </Sequence>
       
-      {/* 4. مشهد الخاتمة بمتغيراته الخاصة */}
       <Sequence from={360} durationInFrames={90}>
         <AbsoluteFill>
-          {/* نستخدم ctaBgImage إن وجد، وإلا نستخدم صورة المنتج مغبشة كاحتياط */}
           <Img src={props.ctaBgImage || props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(15px)', transform: 'scale(1.1)' }} />
-          <AbsoluteFill style={{ background: 'rgba(28,15,0,0.6)' }} />
+          <AbsoluteFill style={{ background: 'rgba(0,0,0,0.7)' }} />
         </AbsoluteFill>
         <CTAOverlay ctaText={props.cta} whatsappNumber={props.whatsappNumber} websiteUrl={props.websiteUrl} brandName={props.brandName} startFrame={0} variant="full" />
       </Sequence>
       
       <Sequence from={60} durationInFrames={150}>
-        <TikTokCaption text={props.hookDarija} startFrame={0} rtl={true} animationMode="slide-up" bgColor={COLORS.backgroundDark} bottom={60} />
+        {/* رفعنا الدارجة للأعلى لتكون واضحة */}
+        <TikTokCaption text={props.hookDarija} startFrame={0} rtl={true} animationMode="slide-up" bgColor={COLORS.backgroundDark} bottom={380} />
       </Sequence>
     </AbsoluteFill>
   );
