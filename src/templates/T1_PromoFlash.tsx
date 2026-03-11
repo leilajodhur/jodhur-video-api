@@ -21,7 +21,6 @@ const SceneHook: React.FC<{ hookFr: string; hookDarija: string; bgImage?: string
   
   return (
     <AbsoluteFill style={{ background: '#000', overflow: 'hidden' }}>
-      {/* الصورة أصبحت واضحة جداً */}
       {bgImage && (
         <AbsoluteFill>
           <Img src={bgImage} style={{ width: '100%', height: '100%', objectFit: 'cover', transform: `scale(${slowZoom})`, opacity: 1 }} />
@@ -71,7 +70,7 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; bgImag
   );
 };
 
-// المشهد الجديد كلياً للسعر (يحتوي على المنتج الآن!)
+// المشهد المعدل بالكامل بناءً على أوامرك الصارمة!
 const ScenePrice: React.FC<{ originalPriceMAD: number; promoPriceMAD: number; promoCode?: string; urgencyText: string; bgImage?: string; productImage: string; productName: string; }> = ({ originalPriceMAD, promoPriceMAD, promoCode, urgencyText, bgImage, productImage, productName }) => {
   const frame = useCurrentFrame();
   const slowZoom = interpolate(frame, [0, 150], [1, 1.05], { extrapolateRight: 'clamp' });
@@ -87,20 +86,22 @@ const ScenePrice: React.FC<{ originalPriceMAD: number; promoPriceMAD: number; pr
       )}
       <AbsoluteFill style={{ background: 'radial-gradient(circle, rgba(196,118,58,0.2) 0%, rgba(0,0,0,0.8) 100%)' }} />
       
-      <UrgencyBadge text={urgencyText} startFrame={0} top={80} right={40} />
+      <UrgencyBadge text={urgencyText} startFrame={0} top={100} right={40} />
       
-      <div style={{ position: 'absolute', top: 80, left: 40 }}>
-        <span style={{ fontFamily: FONTS.display, fontSize: 48, fontWeight: FONT_WEIGHTS.black, color: COLORS.gold }}>OFFRE</span><br />
-        <span style={{ fontFamily: FONTS.display, fontSize: 32, fontWeight: FONT_WEIGHTS.bold, color: COLORS.white }}>SPÉCIALE</span>
+      {/* 1. تم التوسيط لتجنب الاصطدام مع شعار JODHUR */}
+      <div style={{ position: 'absolute', top: 120, left: 0, right: 0, textAlign: 'center' }}>
+        <span style={{ fontFamily: FONTS.display, fontSize: 44, fontWeight: FONT_WEIGHTS.black, color: COLORS.gold }}>OFFRE </span>
+        <span style={{ fontFamily: FONTS.display, fontSize: 44, fontWeight: FONT_WEIGHTS.bold, color: COLORS.white }}>SPÉCIALE</span>
       </div>
       
-      {/* إضافة صورة واسم المنتج لكي لا يبدو المشهد فارغاً */}
-      <div style={{ position: 'absolute', top: '30%', left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `scale(${pop})` }}>
-         <Img src={productImage} style={{ width: 250, height: 250, objectFit: 'contain', filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.8))' }} />
-         <span style={{ fontFamily: FONTS.display, fontSize: 28, color: COLORS.white, marginTop: 16, fontWeight: 'bold' }}>{productName}</span>
+      {/* 2. تكبير حجم المنتج بشكل هائل ليكون البطل */}
+      <div style={{ position: 'absolute', top: '24%', left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `scale(${pop})` }}>
+         <Img src={productImage} style={{ width: 400, height: 400, objectFit: 'contain', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))' }} />
+         <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: 32, color: COLORS.white, marginTop: 10, fontWeight: 'bold' }}>{productName}</span>
       </div>
 
-      <div style={{ position: 'absolute', bottom: 120, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      {/* 3. رفع السعر للأعلى لكي لا يبقى في القاع */}
+      <div style={{ position: 'absolute', bottom: 220, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <PriceTag priceMAD={promoPriceMAD} originalPriceMAD={originalPriceMAD} promoCode={promoCode} startFrame={0} size="large" />
       </div>
     </AbsoluteFill>
@@ -121,20 +122,25 @@ export const T1_PromoFlash: React.FC<T1PromoFlashProps> = (props) => {
       </Sequence>
       
       <Sequence from={210} durationInFrames={150}>
-        {/* نمرر صورة واسم المنتج لمشهد السعر */}
         <ScenePrice originalPriceMAD={props.originalPriceMAD!} promoPriceMAD={props.promoPriceMAD!} promoCode={props.promoCode} urgencyText={props.urgencyText!} bgImage={props.priceBgImage} productImage={props.productImage} productName={props.productName} />
       </Sequence>
       
       <Sequence from={360} durationInFrames={90}>
+        {/* 4. حل كارثة المنتج المتخفي في المشهد الأخير! */}
         <AbsoluteFill>
-          <Img src={props.ctaBgImage || props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(15px)', transform: 'scale(1.1)' }} />
-          <AbsoluteFill style={{ background: 'rgba(0,0,0,0.7)' }} />
+          <Img src={props.ctaBgImage || props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(20px)', transform: 'scale(1.1)' }} />
+          <AbsoluteFill style={{ background: 'rgba(0,0,0,0.65)' }} />
         </AbsoluteFill>
+        
+        {/* إظهار المنتج مجسماً وواضحاً في الواجهة */}
+        <AbsoluteFill style={{ alignItems: 'center', justifyContent: 'center', paddingBottom: 160 }}>
+           <Img src={props.productImage} style={{ width: 380, height: 380, objectFit: 'contain', filter: 'drop-shadow(0 30px 50px rgba(0,0,0,0.6))' }} />
+        </AbsoluteFill>
+
         <CTAOverlay ctaText={props.cta} whatsappNumber={props.whatsappNumber} websiteUrl={props.websiteUrl} brandName={props.brandName} startFrame={0} variant="full" />
       </Sequence>
       
       <Sequence from={60} durationInFrames={150}>
-        {/* رفعنا الدارجة للأعلى لتكون واضحة */}
         <TikTokCaption text={props.hookDarija} startFrame={0} rtl={true} animationMode="slide-up" bgColor={COLORS.backgroundDark} bottom={380} />
       </Sequence>
     </AbsoluteFill>
