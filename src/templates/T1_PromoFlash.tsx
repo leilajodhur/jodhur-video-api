@@ -70,7 +70,7 @@ const SceneProduct: React.FC<{ productName: string; productImage: string; bgImag
   );
 };
 
-// المشهد المعدل بالكامل بناءً على أوامرك الصارمة!
+// مشهد السعر بعد إزالة المربع وجعل الخلفية هي البطل بضبابية خفيفة جداً
 const ScenePrice: React.FC<{ originalPriceMAD: number; promoPriceMAD: number; promoCode?: string; urgencyText: string; bgImage?: string; productImage: string; productName: string; }> = ({ originalPriceMAD, promoPriceMAD, promoCode, urgencyText, bgImage, productImage, productName }) => {
   const frame = useCurrentFrame();
   const slowZoom = interpolate(frame, [0, 150], [1, 1.05], { extrapolateRight: 'clamp' });
@@ -79,28 +79,27 @@ const ScenePrice: React.FC<{ originalPriceMAD: number; promoPriceMAD: number; pr
 
   return (
     <AbsoluteFill style={{ background: '#000', overflow: 'hidden' }}>
-      {bgImage && (
-        <AbsoluteFill>
-           <Img src={bgImage} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.4, transform: `scale(${slowZoom})` }} />
-        </AbsoluteFill>
-      )}
-      <AbsoluteFill style={{ background: 'radial-gradient(circle, rgba(196,118,58,0.2) 0%, rgba(0,0,0,0.8) 100%)' }} />
+      
+      {/* هنا التعديل: نستخدم bgImage أو productImage كخلفية كاملة بضبابية خفيفة جداً (blur(3px)) */}
+      <AbsoluteFill>
+         <Img src={bgImage || productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(3px)', opacity: 0.85, transform: `scale(${slowZoom})` }} />
+      </AbsoluteFill>
+      
+      {/* تدرج لوني خفيف ليظل النص مقروءاً */}
+      <AbsoluteFill style={{ background: 'radial-gradient(circle, rgba(196,118,58,0.1) 0%, rgba(0,0,0,0.7) 100%)' }} />
       
       <UrgencyBadge text={urgencyText} startFrame={0} top={100} right={40} />
       
-      {/* 1. تم التوسيط لتجنب الاصطدام مع شعار JODHUR */}
       <div style={{ position: 'absolute', top: 120, left: 0, right: 0, textAlign: 'center' }}>
         <span style={{ fontFamily: FONTS.display, fontSize: 44, fontWeight: FONT_WEIGHTS.black, color: COLORS.gold }}>OFFRE </span>
         <span style={{ fontFamily: FONTS.display, fontSize: 44, fontWeight: FONT_WEIGHTS.bold, color: COLORS.white }}>SPÉCIALE</span>
       </div>
       
-      {/* 2. تكبير حجم المنتج بشكل هائل ليكون البطل */}
-      <div style={{ position: 'absolute', top: '24%', left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `scale(${pop})` }}>
-         <Img src={productImage} style={{ width: 400, height: 400, objectFit: 'contain', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))' }} />
-         <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: 32, color: COLORS.white, marginTop: 10, fontWeight: 'bold' }}>{productName}</span>
+      {/* تم حذف المربع الصغير، وأبقينا فقط على اسم المنتج في المنتصف ليكون المشهد نظيفاً */}
+      <div style={{ position: 'absolute', top: '45%', left: 0, right: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `scale(${pop})` }}>
+         <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: 36, color: COLORS.white, fontWeight: 'bold', textShadow: '0 4px 15px rgba(0,0,0,0.8)' }}>{productName}</span>
       </div>
 
-      {/* 3. رفع السعر للأعلى لكي لا يبقى في القاع */}
       <div style={{ position: 'absolute', bottom: 220, left: 0, right: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <PriceTag priceMAD={promoPriceMAD} originalPriceMAD={originalPriceMAD} promoCode={promoCode} startFrame={0} size="large" />
       </div>
@@ -126,16 +125,13 @@ export const T1_PromoFlash: React.FC<T1PromoFlashProps> = (props) => {
       </Sequence>
       
       <Sequence from={360} durationInFrames={90}>
-        {/* 4. حل كارثة المنتج المتخفي في المشهد الأخير! */}
+        {/* التعديل هنا: ضبابية خفيفة جداً (blur 3px فقط) بدون أي مربع منتج إضافي في الواجهة */}
         <AbsoluteFill>
-          <Img src={props.ctaBgImage || props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(20px)', transform: 'scale(1.1)' }} />
-          <AbsoluteFill style={{ background: 'rgba(0,0,0,0.65)' }} />
+          <Img src={props.ctaBgImage || props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(3px)', transform: 'scale(1.1)' }} />
+          <AbsoluteFill style={{ background: 'rgba(0,0,0,0.55)' }} />
         </AbsoluteFill>
         
-        {/* إظهار المنتج مجسماً وواضحاً في الواجهة */}
-        <AbsoluteFill style={{ alignItems: 'center', justifyContent: 'center', paddingBottom: 160 }}>
-           <Img src={props.productImage} style={{ width: 380, height: 380, objectFit: 'contain', filter: 'drop-shadow(0 30px 50px rgba(0,0,0,0.6))' }} />
-        </AbsoluteFill>
+        {/* تم حذف كود إظهار المنتج كمربع صغير من هنا */}
 
         <CTAOverlay ctaText={props.cta} whatsappNumber={props.whatsappNumber} websiteUrl={props.websiteUrl} brandName={props.brandName} startFrame={0} variant="full" />
       </Sequence>
