@@ -28,7 +28,6 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-// أيقونة الرابط (SVG احترافي بدلاً من الإيموجي)
 const LinkIcon = () => (
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -48,7 +47,6 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
   const { fps } = useVideoConfig();
   const relFrame = Math.max(0, frame - startFrame);
 
-  // Slide up depuis le bas
   const slideProgress = spring({
     fps,
     frame: relFrame,
@@ -60,7 +58,6 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
   const translateY = interpolate(slideProgress, [0, 1], [200, 0]);
   const opacity = interpolate(relFrame, [0, 8], [0, 1], { extrapolateRight: 'clamp' });
 
-  // Pulsation bouton
   const pulse = spring({
     fps,
     frame: (relFrame % 45),
@@ -73,7 +70,7 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
    <div
       style={{
         position: 'absolute',
-        bottom: 100, // هذه القيمة الممتازة: تجعله في الأسفل مع مسافة تنفس 100 بيكسل
+        bottom: 100, 
         left: 40,
         right: 40,
         transform: `translateY(${translateY}px)`,
@@ -83,7 +80,7 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
       <div
         style={{
           background: 'rgba(28,15,0,0.85)', 
-          padding: '40px 30px', // قللنا الحجم قليلاً ليكون أنيقاً
+          padding: '40px 30px',
           borderRadius: 24,
           display: 'flex',
           flexDirection: 'column',
@@ -93,7 +90,6 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
         }}
       >
         
-        {/* JODHUR Signature - اللمسة الفخمة في المنتصف */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 10 }}>
           <span style={{ 
             fontFamily: FONTS.display, 
@@ -119,7 +115,6 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
           <div style={{ width: 60, height: 2, background: COLORS.gold, margin: '16px auto 8px', opacity: 0.5 }} />
         </div>
 
-        {/* Texte CTA */}
         <div
           style={{
             background: COLORS.overlayLight,
@@ -130,7 +125,7 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
         >
           <span
             style={{
-              fontFamily: FONTS.body,
+              fontFamily: FONTS.arabic || FONTS.body,
               fontSize: FONT_SIZES.body,
               fontWeight: FONT_WEIGHTS.bold,
               color: COLORS.backgroundDark,
@@ -143,10 +138,7 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
           </span>
         </div>
 
-        {/* Boutons d'action */}
         <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-
-          {/* WhatsApp */}
           {(variant === 'whatsapp' || variant === 'full') && whatsappNumber && (
             <div
               style={{
@@ -175,7 +167,6 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
             </div>
           )}
 
-          {/* Lien bio */}
           {(variant === 'link-bio' || variant === 'full') && (
             <div
               style={{
@@ -203,28 +194,13 @@ export const CTAOverlay: React.FC<CTAOverlayProps> = ({
             </div>
           )}
         </div>
-
-        {/* Brand watermark (Original) */}
-        <span
-          style={{
-            fontFamily: FONTS.display,
-            fontSize: 28,
-            fontWeight: FONT_WEIGHTS.bold,
-            color: COLORS.gold,
-            letterSpacing: 4,
-            marginTop: 8,
-            opacity: 0.9,
-          }}
-        >
-          {brandName}
-        </span>
       </div>
     </div>
   );
 };
 
 // ============================================================
-// BrandWatermark — Logo en coin supérieur gauche
+// BrandWatermark — اللوغو الرسمي لـ JODHUR
 // ============================================================
 export const BrandWatermark: React.FC<{ brandName: string; logo?: string }> = ({
   brandName,
@@ -241,6 +217,9 @@ export const BrandWatermark: React.FC<{ brandName: string; logo?: string }> = ({
     to: 1,
   });
 
+  // الرابط الخاص بك مدمج الآن مباشرة
+  const LOGO_URL = "https://jodhur.ma/cdn/shop/files/Logo-JODHUR-400x100px.png?v=1764771962&width=360";
+
   return (
     <div
       style={{
@@ -250,29 +229,19 @@ export const BrandWatermark: React.FC<{ brandName: string; logo?: string }> = ({
         opacity,
         display: 'flex',
         alignItems: 'center',
-        gap: 12,
         zIndex: 100,
       }}
     >
-      <div
-        style={{
-          background: COLORS.gold,
-          borderRadius: 12,
-          padding: '6px 16px',
-        }}
-      >
-        <span
-          style={{
-            fontFamily: FONTS.display,
-            fontSize: 36,
-            fontWeight: FONT_WEIGHTS.black,
-            color: COLORS.backgroundDark,
-            letterSpacing: 3,
-          }}
-        >
-          {brandName}
-        </span>
-      </div>
+      <img 
+        src={LOGO_URL} 
+        alt={brandName}
+        style={{ 
+          height: '60px', // هذا المقاس مناسب جداً للوغو المستطيل ليكون واضحاً وغير ضخم
+          width: 'auto',
+          objectFit: 'contain', 
+          filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.4))' // ظل خفيف ليبرز اللوغو فوق الصور
+        }} 
+      />
     </div>
   );
 };
