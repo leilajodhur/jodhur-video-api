@@ -36,11 +36,12 @@ const Slide: React.FC<{ slide: any; slideIndex: number; totalSlides: number; isL
 
       <SlideDots total={totalSlides} current={slideIndex} />
 
-      {/* البطاقة الزجاجية: تم رفعها للمنتصف (top: 40%) لكي لا تضيع في القاع */}
-      <AbsoluteFill style={{ top: '40%', bottom: 'auto', padding: '0 40px', justifyContent: 'center' }}>
-        <div style={{ transform: `translateY(${textY}px)`, opacity: textOpacity, background: 'rgba(0, 0, 0, 0.65)', backdropFilter: 'blur(20px)', border: `1px solid rgba(255,255,255,0.2)`, borderLeft: `4px solid ${COLORS.gold}`, borderRadius: 32, padding: '40px 30px', display: 'flex', flexDirection: 'column', gap: 16, boxShadow: '0 20px 50px rgba(0,0,0,0.6)' }}>
+      {/* التعديل الأول: تم رفع البطاقة للأعلى بتغيير top إلى 25% */}
+      <AbsoluteFill style={{ top: '25%', bottom: 'auto', padding: '0 40px', justifyContent: 'center' }}>
+        
+        {/* التعديل الثاني: تخفيف الضبابية إلى blur(3px) */}
+        <div style={{ transform: `translateY(${textY}px)`, opacity: textOpacity, background: 'rgba(0, 0, 0, 0.65)', backdropFilter: 'blur(3px)', border: `1px solid rgba(255,255,255,0.2)`, borderLeft: `4px solid ${COLORS.gold}`, borderRadius: 32, padding: '40px 30px', display: 'flex', flexDirection: 'column', gap: 16, boxShadow: '0 20px 50px rgba(0,0,0,0.6)' }}>
            
-           {/* استخدام FONTS.arabic لضمان عدم ظهور المربعات أبداً! */}
            <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: FONT_SIZES.subtitle, fontWeight: FONT_WEIGHTS.black, color: COLORS.gold, lineHeight: 1.2 }}>
              {slide.title}
            </span>
