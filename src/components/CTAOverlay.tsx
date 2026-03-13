@@ -224,22 +224,24 @@ export const BrandWatermark: React.FC<{ brandName: string; logo?: string }> = ({
     <div
       style={{
         position: 'absolute',
-        top: 48,
-        left: 40,
+        top: 50,
+        left: 50,
         opacity,
         display: 'flex',
         alignItems: 'center',
         zIndex: 100,
+        transform: 'scale(1.3)', // التعديل 1: تكبير الكتلة كلها بنسبة 30%
+        transformOrigin: 'top left' // لكي يكبر في مكانه ولا يخرج من الشاشة
       }}
     >
       <img 
         src={LOGO_URL} 
         alt={brandName}
         style={{ 
-          height: '60px', // هذا المقاس مناسب جداً للوغو المستطيل ليكون واضحاً وغير ضخم
+          height: '80px', // التعديل 2: زيادة الارتفاع الأساسي
           width: 'auto',
           objectFit: 'contain', 
-          filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.4))' // ظل خفيف ليبرز اللوغو فوق الصور
+          filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.6))' // زيادة الظل قليلاً ليبرز أكثر بعد التكبير
         }} 
       />
     </div>
