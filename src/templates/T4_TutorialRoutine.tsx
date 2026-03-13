@@ -71,7 +71,8 @@ const SceneTutorial: React.FC<{ steps: any[]; bgImage?: string; }> = ({ steps, b
       
       <span style={{ fontFamily: FONTS.display, fontSize: FONT_SIZES.subtitle, color: COLORS.gold, marginBottom: 40, letterSpacing: 2, textAlign: 'center', zIndex: 1 }}>RITUEL {activeStep + 1}/{validSteps.length}</span>
       
-      <div style={{ display: 'flex', flexDirection: 'column', gap: validSteps.length > 2 ? 16 : 24, zIndex: 1, justifyContent: 'center', flex: 1, paddingBottom: 150 }}>
+      {/* التعديل الأول: جعل الـ paddingBottom 180 لرفع الخطوات قليلاً وعدم تداخلها مع الشريط */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: validSteps.length > 2 ? 16 : 24, zIndex: 1, justifyContent: 'center', flex: 1, paddingBottom: 180 }}>
         {validSteps.map((step, i) => {
           const isCurrent = i === activeStep;
           const startFrame = stepStarts[i];
@@ -108,7 +109,6 @@ const SceneResults: React.FC<{ resultsText: string; productImage: string; bgImag
          <AbsoluteFill style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)' }} />
       </AbsoluteFill>
 
-      {/* التعديل الأول: رفعنا نص النتيجة للأعلى (bottom 250 بدل 120) ليكون أوضح وأكثر مركزية */}
       <div style={{ position: 'absolute', bottom: 250, left: 20, right: 20 }}>
          <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: FONT_SIZES.title, color: COLORS.white, textAlign: 'center', display: 'block', textShadow: '0 6px 20px rgba(0,0,0,1)' }}>{resultsText}</span>
       </div>
@@ -139,23 +139,18 @@ export const T4_TutorialRoutine: React.FC<T4TutorialProps> = (props) => {
          <SceneResults resultsText={props.resultsText!} productImage={props.productImage} bgImage={props.resultsBgImage} />
       </Sequence>
       
-      {/* التعديل الثاني والثالث: مشهد الـ CTA بدون مربع منتج، نص كبير وفخم، وأزرار مرفوعة */}
       <Sequence from={525} durationInFrames={75}>
         <AbsoluteFill>
-          {/* الصورة الخلفية فقط بضبابية 3px */}
           <Img src={props.ctaBgImage || props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(3px)', transform: 'scale(1.1)' }} />
           <AbsoluteFill style={{ background: 'rgba(0,0,0,0.55)' }} />
         </AbsoluteFill>
         
-        {/* تم رفع الكتلة بالكامل عن طريق paddingBottom: 120 لكي لا تكون في الأسفل (مطابق لـ T3) */}
         <AbsoluteFill style={{ alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', gap: 40, transform: `scale(${ctaPop})`, opacity: ctaOpacity, paddingBottom: 120 }}>
            
-           {/* نص CTA بحجم 56 وتصميم فخم (ظل متوهج) */}
            <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: 56, fontWeight: '900', color: COLORS.white, textAlign: 'center', padding: '0 30px', textShadow: '0 10px 30px rgba(0,0,0,0.9), 0 2px 10px rgba(196,118,58,0.5)', lineHeight: 1.3 }}>
              {props.cta}
            </span>
            
-           {/* الأزرار العمودية (Column) */}
            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
              {props.websiteUrl && (
                <div style={{ background: '#fff', padding: '20px 60px', borderRadius: 50, minWidth: 400, textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.4)' }}>
@@ -174,7 +169,8 @@ export const T4_TutorialRoutine: React.FC<T4TutorialProps> = (props) => {
       </Sequence>
       
       <Sequence from={90} durationInFrames={360}>
-        <TikTokCaption text={props.hookDarija} startFrame={0} rtl={true} animationMode="word-by-word" bgColor={COLORS.primary} bottom={150} />
+        {/* التعديل الثاني: رفعنا الشريط الأخضر من 150 إلى 180 ليكون مرتفعاً قليلاً وبشكل آمن */}
+        <TikTokCaption text={props.hookDarija} startFrame={0} rtl={true} animationMode="word-by-word" bgColor={COLORS.primary} bottom={180} />
       </Sequence>
       
     </AbsoluteFill>
