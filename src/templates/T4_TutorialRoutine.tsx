@@ -97,24 +97,20 @@ const SceneTutorial: React.FC<{ steps: any[]; bgImage?: string; }> = ({ steps, b
   );
 };
 
-// تم إلغاء تأثير الخطف لأننا نريد التركيز على الـ CTA الواضح
 const SceneResults: React.FC<{ resultsText: string; productImage: string; bgImage?: string; }> = ({ resultsText, productImage, bgImage }) => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const productPop = spring({ fps, frame: frame - 10, config: { damping: 12 }, from: 0.8, to: 1 });
 
   return (
     <AbsoluteFill style={{ background: '#000', alignItems: 'center', justifyContent: 'center' }}>
       
-      {/* 1. إظهار النتيجة بوضوح */}
       <AbsoluteFill>
          <Img src={bgImage || productImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
          <AbsoluteFill style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)' }} />
       </AbsoluteFill>
 
-      {/* نص النتيجة في الأسفل */}
-      <div style={{ position: 'absolute', bottom: 120, left: 20, right: 20 }}>
-         <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: FONT_SIZES.title, color: COLORS.white, textAlign: 'center', display: 'block', textShadow: '0 4px 15px rgba(0,0,0,1)' }}>{resultsText}</span>
+      {/* التعديل الأول: رفعنا نص النتيجة للأعلى (bottom 250 بدل 120) ليكون أوضح وأكثر مركزية */}
+      <div style={{ position: 'absolute', bottom: 250, left: 20, right: 20 }}>
+         <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: FONT_SIZES.title, color: COLORS.white, textAlign: 'center', display: 'block', textShadow: '0 6px 20px rgba(0,0,0,1)' }}>{resultsText}</span>
       </div>
       
     </AbsoluteFill>
@@ -143,29 +139,31 @@ export const T4_TutorialRoutine: React.FC<T4TutorialProps> = (props) => {
          <SceneResults resultsText={props.resultsText!} productImage={props.productImage} bgImage={props.resultsBgImage} />
       </Sequence>
       
-      {/* المشهد الأخير تم توحيده: ضبابية 3px، منتج مجسم في الوسط، وأزرار مرفوعة (Column) */}
+      {/* التعديل الثاني والثالث: مشهد الـ CTA بدون مربع منتج، نص كبير وفخم، وأزرار مرفوعة */}
       <Sequence from={525} durationInFrames={75}>
         <AbsoluteFill>
+          {/* الصورة الخلفية فقط بضبابية 3px */}
           <Img src={props.ctaBgImage || props.productImage} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'blur(3px)', transform: 'scale(1.1)' }} />
           <AbsoluteFill style={{ background: 'rgba(0,0,0,0.55)' }} />
         </AbsoluteFill>
         
-        <AbsoluteFill style={{ alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', gap: 30, transform: `scale(${ctaPop})`, opacity: ctaOpacity, paddingBottom: 60 }}>
+        {/* تم رفع الكتلة بالكامل عن طريق paddingBottom: 120 لكي لا تكون في الأسفل (مطابق لـ T3) */}
+        <AbsoluteFill style={{ alignItems: 'center', justifyContent: 'center', display: 'flex', flexDirection: 'column', gap: 40, transform: `scale(${ctaPop})`, opacity: ctaOpacity, paddingBottom: 120 }}>
            
-           <Img src={props.productImage} style={{ width: 380, height: 380, objectFit: 'contain', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.6))' }} />
-           
-           <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: 44, fontWeight: 'bold', color: COLORS.white, textAlign: 'center', padding: '0 40px', textShadow: '0 4px 15px rgba(0,0,0,0.8)' }}>
+           {/* نص CTA بحجم 56 وتصميم فخم (ظل متوهج) */}
+           <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: 56, fontWeight: '900', color: COLORS.white, textAlign: 'center', padding: '0 30px', textShadow: '0 10px 30px rgba(0,0,0,0.9), 0 2px 10px rgba(196,118,58,0.5)', lineHeight: 1.3 }}>
              {props.cta}
            </span>
            
+           {/* الأزرار العمودية (Column) */}
            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
              {props.websiteUrl && (
-               <div style={{ background: '#fff', padding: '20px 60px', borderRadius: 50, minWidth: 380, textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }}>
+               <div style={{ background: '#fff', padding: '20px 60px', borderRadius: 50, minWidth: 400, textAlign: 'center', boxShadow: '0 10px 30px rgba(0,0,0,0.4)' }}>
                  <span style={{ fontFamily: FONTS.display, fontSize: 32, color: '#000', fontWeight: 'black' }}>{props.websiteUrl}</span>
                </div>
              )}
              {props.whatsappNumber && (
-               <div style={{ background: '#25D366', padding: '20px 60px', borderRadius: 50, display: 'flex', alignItems: 'center', gap: 15, minWidth: 380, justifyContent: 'center', boxShadow: '0 10px 30px rgba(37,211,102,0.4)' }}>
+               <div style={{ background: '#25D366', padding: '20px 60px', borderRadius: 50, display: 'flex', alignItems: 'center', gap: 15, minWidth: 400, justifyContent: 'center', boxShadow: '0 10px 30px rgba(37,211,102,0.4)' }}>
                  <WhatsAppIcon />
                  <span style={{ fontFamily: FONTS.display, fontSize: 32, color: '#fff', fontWeight: 'bold' }}>{props.whatsappNumber}</span>
                </div>
@@ -176,7 +174,6 @@ export const T4_TutorialRoutine: React.FC<T4TutorialProps> = (props) => {
       </Sequence>
       
       <Sequence from={90} durationInFrames={360}>
-        {/* رفعنا مكان الدارجة ليظل مرئياً بشكل جيد */}
         <TikTokCaption text={props.hookDarija} startFrame={0} rtl={true} animationMode="word-by-word" bgColor={COLORS.primary} bottom={150} />
       </Sequence>
       
