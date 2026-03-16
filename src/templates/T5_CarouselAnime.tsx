@@ -5,7 +5,7 @@ import { FONTS, FONT_SIZES, FONT_WEIGHTS } from '../constants/fonts';
 import { CTAOverlay, BrandWatermark } from '../components/CTAOverlay';
 import type { T5CarouselProps } from '../types';
 
-// التعديل الأول: تسريع الفيديو! 120 فريم = 4 ثوانٍ لكل شريحة بدل 5. (فيديو من 4 شرائح سيصبح 16 ثانية)
+// السرعة السريعة (4 ثوان لكل شريحة)
 const FRAMES_PER_SLIDE = 120; 
 
 const SlideDots: React.FC<{ total: number; current: number }> = ({ total, current }) => (
@@ -36,15 +36,12 @@ const Slide: React.FC<{ slide: any; slideIndex: number; totalSlides: number; isL
 
       <SlideDots total={totalSlides} current={slideIndex} />
 
-      {/* التعديل الثاني السحري: إذا كانت الشريحة الأخيرة (isLast) نرفعها لـ 160 بيكسل لكي لا تلمس اللوغو وتبتعد عن الأزرار. وإلا نضعها في 30% لتكون في الوسط */}
+      {/* رفع البطاقة الأخيرة (isLast) لتكون بعيدة عن الأزرار */}
       <AbsoluteFill style={{ top: isLast ? 160 : '30%', bottom: 'auto', padding: '0 40px', justifyContent: 'center' }}>
-        
         <div style={{ transform: `translateY(${textY}px)`, opacity: textOpacity, background: 'rgba(0, 0, 0, 0.65)', backdropFilter: 'blur(3px)', border: `1px solid rgba(255,255,255,0.2)`, borderLeft: `4px solid ${COLORS.gold}`, borderRadius: 32, padding: '40px 30px', display: 'flex', flexDirection: 'column', gap: 16, boxShadow: '0 20px 50px rgba(0,0,0,0.6)' }}>
-           
            <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: FONT_SIZES.subtitle, fontWeight: FONT_WEIGHTS.black, color: COLORS.gold, lineHeight: 1.2 }}>
              {slide.title}
            </span>
-           
            <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: FONT_SIZES.body + 4, color: COLORS.white, lineHeight: 1.5 }}>
              {slide.body}
            </span>
@@ -52,8 +49,8 @@ const Slide: React.FC<{ slide: any; slideIndex: number; totalSlides: number; isL
       </AbsoluteFill>
 
       {isLast && (
-        // التعديل الثالث: جعلنا الأزرار تظهر في الفريم 60 لكي تتناسب مع السرعة الجديدة للفيديو
-        <Sequence from={60} durationInFrames={60}>
+        // التعديل الأهم 1: أزلنا "durationInFrames" لكي تبقى الأزرار ظاهرة للأبد ولا تختفي
+        <Sequence from={60}>
           <CTAOverlay ctaText={cta} whatsappNumber={whatsappNumber} websiteUrl={websiteUrl} brandName={brandName} startFrame={0} variant="whatsapp" />
         </Sequence>
       )}
@@ -71,21 +68,28 @@ export const T5_CarouselAnime: React.FC<T5CarouselProps> = (props) => {
     <AbsoluteFill style={{ background: '#000' }}>
       <BrandWatermark brandName={props.brandName} />
       
-      {validSlides.map((slide, index) => (
-        <Sequence key={index} from={index * FRAMES_PER_SLIDE} durationInFrames={validSlides.length * FRAMES_PER_SLIDE - (index * FRAMES_PER_SLIDE)}>
-          <Slide 
-            slide={slide} 
-            slideIndex={index} 
-            totalSlides={validSlides.length} 
-            cta={props.cta} 
-            whatsappNumber={props.whatsappNumber} 
-            websiteUrl={props.websiteUrl} 
-            brandName={props.brandName} 
-            isLast={index === validSlides.length - 1} 
-            fallbackImage={props.productImage} 
-          />
-        </Sequence>
-      ))}
+      {validSlides.map((slide, index) => {
+        const isLast = index === validSlides.length - 1;
+        
+        // التعديل الأهم 2: إذا كانت الشريحة هي الأخيرة، نعطيها وقت طويل جداً (1000 فريم) لكي لا تصبح الشاشة سوداء أبداً
+        const seqDuration = isLast ? 1000 : validSlides.length * FRAMES_PER_SLIDE - (index * FRAMES_PER_SLIDE);
+
+        return (
+          <Sequence key={index} from={index * FRAMES_PER_SLIDE} durationInFrames={seqDuration}>
+            <Slide 
+              slide={slide} 
+              slideIndex={index} 
+              totalSlides={validSlides.length} 
+              cta={props.cta} 
+              whatsappNumber={props.whatsappNumber} 
+              websiteUrl={props.websiteUrl} 
+              brandName={props.brandName} 
+              isLast={isLast} 
+              fallbackImage={props.productImage} 
+            />
+          </Sequence>
+        );
+      })}
     </AbsoluteFill>
   );
 };
