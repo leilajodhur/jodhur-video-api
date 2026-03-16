@@ -5,7 +5,8 @@ import { FONTS, FONT_SIZES, FONT_WEIGHTS } from '../constants/fonts';
 import { CTAOverlay, BrandWatermark } from '../components/CTAOverlay';
 import type { T5CarouselProps } from '../types';
 
-const FRAMES_PER_SLIDE = 150; 
+// التعديل الأول: تسريع الفيديو! 120 فريم = 4 ثوانٍ لكل شريحة بدل 5. (فيديو من 4 شرائح سيصبح 16 ثانية)
+const FRAMES_PER_SLIDE = 120; 
 
 const SlideDots: React.FC<{ total: number; current: number }> = ({ total, current }) => (
   <div style={{ position: 'absolute', top: 120, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 12, zIndex: 20 }}>
@@ -28,7 +29,6 @@ const Slide: React.FC<{ slide: any; slideIndex: number; totalSlides: number; isL
   return (
     <AbsoluteFill style={{ background: '#000', transform: `translateX(${enterX}px)` }}>
       
-      {/* الصورة الآن تملأ الشاشة بالكامل وواضحة جداً وبدون ألوان بنية */}
       <AbsoluteFill>
         <Img src={slideImg} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 1 }} />
         <AbsoluteFill style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 40%, rgba(0,0,0,0.8) 100%)' }} />
@@ -36,10 +36,9 @@ const Slide: React.FC<{ slide: any; slideIndex: number; totalSlides: number; isL
 
       <SlideDots total={totalSlides} current={slideIndex} />
 
-      {/* التعديل الأول: تم رفع البطاقة للأعلى بتغيير top إلى 25% */}
-      <AbsoluteFill style={{ top: '25%', bottom: 'auto', padding: '0 40px', justifyContent: 'center' }}>
+      {/* التعديل الثاني السحري: إذا كانت الشريحة الأخيرة (isLast) نرفعها لـ 160 بيكسل لكي لا تلمس اللوغو وتبتعد عن الأزرار. وإلا نضعها في 30% لتكون في الوسط */}
+      <AbsoluteFill style={{ top: isLast ? 160 : '30%', bottom: 'auto', padding: '0 40px', justifyContent: 'center' }}>
         
-        {/* التعديل الثاني: تخفيف الضبابية إلى blur(3px) */}
         <div style={{ transform: `translateY(${textY}px)`, opacity: textOpacity, background: 'rgba(0, 0, 0, 0.65)', backdropFilter: 'blur(3px)', border: `1px solid rgba(255,255,255,0.2)`, borderLeft: `4px solid ${COLORS.gold}`, borderRadius: 32, padding: '40px 30px', display: 'flex', flexDirection: 'column', gap: 16, boxShadow: '0 20px 50px rgba(0,0,0,0.6)' }}>
            
            <span style={{ fontFamily: FONTS.arabic || 'sans-serif', fontSize: FONT_SIZES.subtitle, fontWeight: FONT_WEIGHTS.black, color: COLORS.gold, lineHeight: 1.2 }}>
@@ -53,7 +52,8 @@ const Slide: React.FC<{ slide: any; slideIndex: number; totalSlides: number; isL
       </AbsoluteFill>
 
       {isLast && (
-        <Sequence from={75} durationInFrames={75}>
+        // التعديل الثالث: جعلنا الأزرار تظهر في الفريم 60 لكي تتناسب مع السرعة الجديدة للفيديو
+        <Sequence from={60} durationInFrames={60}>
           <CTAOverlay ctaText={cta} whatsappNumber={whatsappNumber} websiteUrl={websiteUrl} brandName={brandName} startFrame={0} variant="whatsapp" />
         </Sequence>
       )}
